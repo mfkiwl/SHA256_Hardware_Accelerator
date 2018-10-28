@@ -81,15 +81,19 @@ sram	#(.ADDR_WIDTH ( $clog2( MAX_MESSAGE_LENGTH ) ),
 sram_controller	#(.ADDR_WIDTH ( $clog2( MAX_MESSAGE_LENGTH ) ),
 		  .DATA_WIDTH ( SYMBOL_WIDTH ))
 		  message_mem_sram_controller (
+		  //Input to the SRAM Controller
 		  .clock 		( clk ),
 		  .reset 		( reset ),
 		  .memctrl_enable	( enable_sig ),
 		  .memctrl_rw 		( rw_sig ),
 		  .memctrl_addr 	( addr_sig ),
 		  .memctrl_write_data	( write_data_sig ),
+		  //Input from the SRAM to SRAM Controller
 		  .sram_out_data 	( sram_out_signal ),
+		  //Output from the SRAM Controller
 		  .dat_ready 		( dat_ready_sig ),
 		  .memctrl_out_data	( out_data_sig ),
+		  //Output from the SRAM Controller to SRAM
 		  .sram_enable		( sram_enable_sig ),
 		  .sram_rw		( sram_rw_sig ),
 		  .sram_write_data	( sram_wdata_sig ),

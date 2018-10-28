@@ -1,0 +1,934 @@
+$date
+	Sun Oct 28 13:30:34 2018
+$end
+$version
+	ModelSim Version 10.3b
+$end
+$timescale
+	1ns
+$end
+
+$scope module test_sramcontroller $end
+$var parameter 32 ! CLK_PHASE $end
+$var parameter 32 " MAX_MESSAGE_LENGTH $end
+$var parameter 32 # SYMBOL_WIDTH $end
+$var reg 1 $ clk $end
+$var reg 1 % reset $end
+$var reg 1 & enable_sig $end
+$var reg 1 ' rw_sig $end
+$var reg 3 ( addr_sig [2:0] $end
+$var reg 32 ) write_data_sig [31:0] $end
+$var wire 1 * sram_out_signal [31] $end
+$var wire 1 + sram_out_signal [30] $end
+$var wire 1 , sram_out_signal [29] $end
+$var wire 1 - sram_out_signal [28] $end
+$var wire 1 . sram_out_signal [27] $end
+$var wire 1 / sram_out_signal [26] $end
+$var wire 1 0 sram_out_signal [25] $end
+$var wire 1 1 sram_out_signal [24] $end
+$var wire 1 2 sram_out_signal [23] $end
+$var wire 1 3 sram_out_signal [22] $end
+$var wire 1 4 sram_out_signal [21] $end
+$var wire 1 5 sram_out_signal [20] $end
+$var wire 1 6 sram_out_signal [19] $end
+$var wire 1 7 sram_out_signal [18] $end
+$var wire 1 8 sram_out_signal [17] $end
+$var wire 1 9 sram_out_signal [16] $end
+$var wire 1 : sram_out_signal [15] $end
+$var wire 1 ; sram_out_signal [14] $end
+$var wire 1 < sram_out_signal [13] $end
+$var wire 1 = sram_out_signal [12] $end
+$var wire 1 > sram_out_signal [11] $end
+$var wire 1 ? sram_out_signal [10] $end
+$var wire 1 @ sram_out_signal [9] $end
+$var wire 1 A sram_out_signal [8] $end
+$var wire 1 B sram_out_signal [7] $end
+$var wire 1 C sram_out_signal [6] $end
+$var wire 1 D sram_out_signal [5] $end
+$var wire 1 E sram_out_signal [4] $end
+$var wire 1 F sram_out_signal [3] $end
+$var wire 1 G sram_out_signal [2] $end
+$var wire 1 H sram_out_signal [1] $end
+$var wire 1 I sram_out_signal [0] $end
+$var wire 1 J dat_ready_sig $end
+$var wire 1 K out_data_sig [31] $end
+$var wire 1 L out_data_sig [30] $end
+$var wire 1 M out_data_sig [29] $end
+$var wire 1 N out_data_sig [28] $end
+$var wire 1 O out_data_sig [27] $end
+$var wire 1 P out_data_sig [26] $end
+$var wire 1 Q out_data_sig [25] $end
+$var wire 1 R out_data_sig [24] $end
+$var wire 1 S out_data_sig [23] $end
+$var wire 1 T out_data_sig [22] $end
+$var wire 1 U out_data_sig [21] $end
+$var wire 1 V out_data_sig [20] $end
+$var wire 1 W out_data_sig [19] $end
+$var wire 1 X out_data_sig [18] $end
+$var wire 1 Y out_data_sig [17] $end
+$var wire 1 Z out_data_sig [16] $end
+$var wire 1 [ out_data_sig [15] $end
+$var wire 1 \ out_data_sig [14] $end
+$var wire 1 ] out_data_sig [13] $end
+$var wire 1 ^ out_data_sig [12] $end
+$var wire 1 _ out_data_sig [11] $end
+$var wire 1 ` out_data_sig [10] $end
+$var wire 1 a out_data_sig [9] $end
+$var wire 1 b out_data_sig [8] $end
+$var wire 1 c out_data_sig [7] $end
+$var wire 1 d out_data_sig [6] $end
+$var wire 1 e out_data_sig [5] $end
+$var wire 1 f out_data_sig [4] $end
+$var wire 1 g out_data_sig [3] $end
+$var wire 1 h out_data_sig [2] $end
+$var wire 1 i out_data_sig [1] $end
+$var wire 1 j out_data_sig [0] $end
+$var wire 1 k sram_enable_sig $end
+$var wire 1 l sram_rw_sig $end
+$var wire 1 m sram_wdata_sig [31] $end
+$var wire 1 n sram_wdata_sig [30] $end
+$var wire 1 o sram_wdata_sig [29] $end
+$var wire 1 p sram_wdata_sig [28] $end
+$var wire 1 q sram_wdata_sig [27] $end
+$var wire 1 r sram_wdata_sig [26] $end
+$var wire 1 s sram_wdata_sig [25] $end
+$var wire 1 t sram_wdata_sig [24] $end
+$var wire 1 u sram_wdata_sig [23] $end
+$var wire 1 v sram_wdata_sig [22] $end
+$var wire 1 w sram_wdata_sig [21] $end
+$var wire 1 x sram_wdata_sig [20] $end
+$var wire 1 y sram_wdata_sig [19] $end
+$var wire 1 z sram_wdata_sig [18] $end
+$var wire 1 { sram_wdata_sig [17] $end
+$var wire 1 | sram_wdata_sig [16] $end
+$var wire 1 } sram_wdata_sig [15] $end
+$var wire 1 ~ sram_wdata_sig [14] $end
+$var wire 1 !! sram_wdata_sig [13] $end
+$var wire 1 "! sram_wdata_sig [12] $end
+$var wire 1 #! sram_wdata_sig [11] $end
+$var wire 1 $! sram_wdata_sig [10] $end
+$var wire 1 %! sram_wdata_sig [9] $end
+$var wire 1 &! sram_wdata_sig [8] $end
+$var wire 1 '! sram_wdata_sig [7] $end
+$var wire 1 (! sram_wdata_sig [6] $end
+$var wire 1 )! sram_wdata_sig [5] $end
+$var wire 1 *! sram_wdata_sig [4] $end
+$var wire 1 +! sram_wdata_sig [3] $end
+$var wire 1 ,! sram_wdata_sig [2] $end
+$var wire 1 -! sram_wdata_sig [1] $end
+$var wire 1 .! sram_wdata_sig [0] $end
+$var wire 1 /! sram_addr_sig [2] $end
+$var wire 1 0! sram_addr_sig [1] $end
+$var wire 1 1! sram_addr_sig [0] $end
+
+$scope module msg_mem $end
+$var parameter 32 2! ADDR_WIDTH $end
+$var parameter 32 3! DATA_WIDTH $end
+$var parameter 320 4! MEM_INIT_FILE $end
+$var wire 1 /! address [2] $end
+$var wire 1 0! address [1] $end
+$var wire 1 1! address [0] $end
+$var wire 1 m write_data [31] $end
+$var wire 1 n write_data [30] $end
+$var wire 1 o write_data [29] $end
+$var wire 1 p write_data [28] $end
+$var wire 1 q write_data [27] $end
+$var wire 1 r write_data [26] $end
+$var wire 1 s write_data [25] $end
+$var wire 1 t write_data [24] $end
+$var wire 1 u write_data [23] $end
+$var wire 1 v write_data [22] $end
+$var wire 1 w write_data [21] $end
+$var wire 1 x write_data [20] $end
+$var wire 1 y write_data [19] $end
+$var wire 1 z write_data [18] $end
+$var wire 1 { write_data [17] $end
+$var wire 1 | write_data [16] $end
+$var wire 1 } write_data [15] $end
+$var wire 1 ~ write_data [14] $end
+$var wire 1 !! write_data [13] $end
+$var wire 1 "! write_data [12] $end
+$var wire 1 #! write_data [11] $end
+$var wire 1 $! write_data [10] $end
+$var wire 1 %! write_data [9] $end
+$var wire 1 &! write_data [8] $end
+$var wire 1 '! write_data [7] $end
+$var wire 1 (! write_data [6] $end
+$var wire 1 )! write_data [5] $end
+$var wire 1 *! write_data [4] $end
+$var wire 1 +! write_data [3] $end
+$var wire 1 ,! write_data [2] $end
+$var wire 1 -! write_data [1] $end
+$var wire 1 .! write_data [0] $end
+$var reg 32 5! read_data [31:0] $end
+$var wire 1 k enable $end
+$var wire 1 l write $end
+$var wire 1 6! clock $end
+$var integer 32 7! fileDesc $end
+$var reg 3 8! memory_address [2:0] $end
+$var reg 32 9! memory_data [31:0] $end
+$var event 1 :! loadMemory $end
+
+$scope task loadInitFile $end
+$upscope $end
+$upscope $end
+
+$scope module message_mem_sram_controller $end
+$var parameter 32 ;! ADDR_WIDTH $end
+$var parameter 32 <! DATA_WIDTH $end
+$var wire 1 =! clock $end
+$var wire 1 >! reset $end
+$var wire 1 ?! memctrl_enable $end
+$var wire 1 @! memctrl_rw $end
+$var wire 1 A! memctrl_addr [2] $end
+$var wire 1 B! memctrl_addr [1] $end
+$var wire 1 C! memctrl_addr [0] $end
+$var wire 1 D! memctrl_write_data [31] $end
+$var wire 1 E! memctrl_write_data [30] $end
+$var wire 1 F! memctrl_write_data [29] $end
+$var wire 1 G! memctrl_write_data [28] $end
+$var wire 1 H! memctrl_write_data [27] $end
+$var wire 1 I! memctrl_write_data [26] $end
+$var wire 1 J! memctrl_write_data [25] $end
+$var wire 1 K! memctrl_write_data [24] $end
+$var wire 1 L! memctrl_write_data [23] $end
+$var wire 1 M! memctrl_write_data [22] $end
+$var wire 1 N! memctrl_write_data [21] $end
+$var wire 1 O! memctrl_write_data [20] $end
+$var wire 1 P! memctrl_write_data [19] $end
+$var wire 1 Q! memctrl_write_data [18] $end
+$var wire 1 R! memctrl_write_data [17] $end
+$var wire 1 S! memctrl_write_data [16] $end
+$var wire 1 T! memctrl_write_data [15] $end
+$var wire 1 U! memctrl_write_data [14] $end
+$var wire 1 V! memctrl_write_data [13] $end
+$var wire 1 W! memctrl_write_data [12] $end
+$var wire 1 X! memctrl_write_data [11] $end
+$var wire 1 Y! memctrl_write_data [10] $end
+$var wire 1 Z! memctrl_write_data [9] $end
+$var wire 1 [! memctrl_write_data [8] $end
+$var wire 1 \! memctrl_write_data [7] $end
+$var wire 1 ]! memctrl_write_data [6] $end
+$var wire 1 ^! memctrl_write_data [5] $end
+$var wire 1 _! memctrl_write_data [4] $end
+$var wire 1 `! memctrl_write_data [3] $end
+$var wire 1 a! memctrl_write_data [2] $end
+$var wire 1 b! memctrl_write_data [1] $end
+$var wire 1 c! memctrl_write_data [0] $end
+$var wire 1 * sram_out_data [31] $end
+$var wire 1 + sram_out_data [30] $end
+$var wire 1 , sram_out_data [29] $end
+$var wire 1 - sram_out_data [28] $end
+$var wire 1 . sram_out_data [27] $end
+$var wire 1 / sram_out_data [26] $end
+$var wire 1 0 sram_out_data [25] $end
+$var wire 1 1 sram_out_data [24] $end
+$var wire 1 2 sram_out_data [23] $end
+$var wire 1 3 sram_out_data [22] $end
+$var wire 1 4 sram_out_data [21] $end
+$var wire 1 5 sram_out_data [20] $end
+$var wire 1 6 sram_out_data [19] $end
+$var wire 1 7 sram_out_data [18] $end
+$var wire 1 8 sram_out_data [17] $end
+$var wire 1 9 sram_out_data [16] $end
+$var wire 1 : sram_out_data [15] $end
+$var wire 1 ; sram_out_data [14] $end
+$var wire 1 < sram_out_data [13] $end
+$var wire 1 = sram_out_data [12] $end
+$var wire 1 > sram_out_data [11] $end
+$var wire 1 ? sram_out_data [10] $end
+$var wire 1 @ sram_out_data [9] $end
+$var wire 1 A sram_out_data [8] $end
+$var wire 1 B sram_out_data [7] $end
+$var wire 1 C sram_out_data [6] $end
+$var wire 1 D sram_out_data [5] $end
+$var wire 1 E sram_out_data [4] $end
+$var wire 1 F sram_out_data [3] $end
+$var wire 1 G sram_out_data [2] $end
+$var wire 1 H sram_out_data [1] $end
+$var wire 1 I sram_out_data [0] $end
+$var reg 1 d! dat_ready $end
+$var reg 32 e! memctrl_out_data [31:0] $end
+$var reg 1 f! sram_enable $end
+$var reg 1 g! sram_rw $end
+$var reg 32 h! sram_write_data [31:0] $end
+$var reg 3 i! sram_addr [2:0] $end
+$upscope $end
+$upscope $end
+
+$scope begin std $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+0$
+1%
+0&
+0'
+b0 (
+b0 )
+bx 5!
+b111 8!
+b10001001100010011000100110001001 9!
+xd!
+bx e!
+xf!
+xg!
+bx h!
+bx i!
+b101 !
+b1000 "
+b100000 #
+b11 2!
+b100000 3!
+b11 ;!
+b100000 <!
+b101110001011100010111100101110001011100010111101001000010001000100110000101111011100100111010101101110010111110111001100101111011100110111001001100001011011010101111101100011011011110110111001110100011100100110111101101100011011000110010101110010010111110111010001100101011100110111010000101110011001000110000101110100 4!
+1:!
+b10000000000000000000000000000111 7!
+xI
+xH
+xG
+xF
+xE
+xD
+xC
+xB
+xA
+x@
+x?
+x>
+x=
+x<
+x;
+x:
+x9
+x8
+x7
+x6
+x5
+x4
+x3
+x2
+x1
+x0
+x/
+x.
+x-
+x,
+x+
+x*
+xJ
+xj
+xi
+xh
+xg
+xf
+xe
+xd
+xc
+xb
+xa
+x`
+x_
+x^
+x]
+x\
+x[
+xZ
+xY
+xX
+xW
+xV
+xU
+xT
+xS
+xR
+xQ
+xP
+xO
+xN
+xM
+xL
+xK
+xk
+xl
+x.!
+x-!
+x,!
+x+!
+x*!
+x)!
+x(!
+x'!
+x&!
+x%!
+x$!
+x#!
+x"!
+x!!
+x~
+x}
+x|
+x{
+xz
+xy
+xx
+xw
+xv
+xu
+xt
+xs
+xr
+xq
+xp
+xo
+xn
+xm
+x1!
+x0!
+x/!
+06!
+0=!
+1>!
+0?!
+0@!
+0C!
+0B!
+0A!
+0c!
+0b!
+0a!
+0`!
+0_!
+0^!
+0]!
+0\!
+0[!
+0Z!
+0Y!
+0X!
+0W!
+0V!
+0U!
+0T!
+0S!
+0R!
+0Q!
+0P!
+0O!
+0N!
+0M!
+0L!
+0K!
+0J!
+0I!
+0H!
+0G!
+0F!
+0E!
+0D!
+$end
+#4
+bx0x0x0xxx0x0x0xxxxxxxxxxxxxxxxxx 5!
+07
+05
+03
+0/
+0-
+0+
+#5
+0%
+b1 (
+1&
+1$
+0>!
+1C!
+1?!
+1=!
+16!
+bx0x0x0xxx0x0x0xxxxxxxxxxxxxxxxxx e!
+0X
+0V
+0T
+0P
+0N
+0L
+1f!
+0g!
+b0 h!
+b1 i!
+0.!
+0-!
+0,!
+0+!
+0*!
+0)!
+0(!
+0'!
+0&!
+0%!
+0$!
+0#!
+0"!
+0!!
+0~
+0}
+0|
+0{
+0z
+0y
+0x
+0w
+0v
+0u
+0t
+0s
+0r
+0q
+0p
+0o
+0n
+0m
+1k
+0l
+11!
+00!
+0/!
+#9
+b11001101110011011100110111001101 5!
+1I
+0H
+1G
+1F
+0E
+0D
+1C
+1B
+1A
+0@
+1?
+1>
+0=
+0<
+1;
+1:
+19
+08
+17
+16
+04
+13
+12
+11
+00
+1/
+1.
+0,
+1+
+1*
+#10
+0$
+0=!
+06!
+#15
+b10 (
+1$
+0C!
+1B!
+1=!
+16!
+b11001101110011011100110111001101 e!
+1j
+0i
+1h
+1g
+0f
+0e
+1d
+1c
+1b
+0a
+1`
+1_
+0^
+0]
+1\
+1[
+1Z
+0Y
+1X
+1W
+0U
+1T
+1S
+1R
+0Q
+1P
+1O
+0M
+1L
+1K
+b10 i!
+1d!
+1J
+01!
+10!
+#19
+b11101111111011111110111111101111 5!
+1H
+1D
+1@
+1<
+18
+14
+10
+1,
+#20
+0$
+0=!
+06!
+#25
+0&
+1$
+0?!
+1=!
+16!
+b11101111111011111110111111101111 e!
+1i
+1e
+1a
+1]
+1Y
+1U
+1Q
+1M
+0f!
+0k
+#29
+b0xxxxxxxxxxxxxxxx 5!
+xI
+xH
+xG
+xF
+xE
+xD
+xC
+xB
+xA
+x@
+x?
+x>
+x=
+x<
+x;
+x:
+09
+08
+07
+06
+04
+03
+02
+01
+00
+0/
+0.
+0,
+0+
+0*
+#30
+0$
+0=!
+06!
+#35
+1&
+1'
+b11 (
+b1010110011110001001101010111100 )
+1$
+1?!
+1@!
+1a!
+1`!
+1_!
+1^!
+1\!
+1Z!
+1X!
+1W!
+1T!
+1P!
+1O!
+1N!
+1M!
+1J!
+1I!
+1G!
+1E!
+1C!
+1=!
+16!
+b0xxxxxxxxxxxxxxxx e!
+xj
+xi
+xh
+xg
+xf
+xe
+xd
+xc
+xb
+xa
+x`
+x_
+x^
+x]
+x\
+x[
+0Z
+0Y
+0X
+0W
+0U
+0T
+0S
+0R
+0Q
+0P
+0O
+0M
+0L
+0K
+1f!
+1g!
+b1010110011110001001101010111100 h!
+b11 i!
+0d!
+1,!
+1+!
+1*!
+1)!
+1'!
+1%!
+1#!
+1"!
+1}
+1y
+1x
+1w
+1v
+1s
+1r
+1p
+1n
+0J
+1k
+1l
+11!
+#40
+0$
+0=!
+06!
+#45
+0'
+1$
+0@!
+1=!
+16!
+0g!
+0l
+#49
+b1010110011110001001101010111100 5!
+0I
+0H
+1G
+1F
+1E
+1D
+0C
+1B
+0A
+1@
+0?
+1>
+1=
+0<
+0;
+1:
+16
+15
+14
+13
+10
+1/
+1-
+1+
+#50
+0$
+0=!
+06!
+#55
+0&
+1$
+0?!
+1=!
+16!
+b1010110011110001001101010111100 e!
+0j
+0i
+1h
+1g
+1f
+1e
+0d
+1c
+0b
+1a
+0`
+1_
+1^
+0]
+0\
+1[
+1W
+1V
+1U
+1T
+1Q
+1P
+1N
+1L
+0f!
+1d!
+1J
+0k
+#59
+b0xxxxxxxxxxxxxxxx 5!
+xI
+xH
+xG
+xF
+xE
+xD
+xC
+xB
+xA
+x@
+x?
+x>
+x=
+x<
+x;
+x:
+06
+05
+04
+03
+00
+0/
+0-
+0+
+#60
+0$
+0=!
+06!
+#65
+1$
+1=!
+16!
+b0xxxxxxxxxxxxxxxx e!
+xj
+xi
+xh
+xg
+xf
+xe
+xd
+xc
+xb
+xa
+x`
+x_
+x^
+x]
+x\
+x[
+0W
+0V
+0U
+0T
+0Q
+0P
+0N
+0L
+0d!
+0J
+#70
+0$
+0=!
+06!
+#75
+1$
+1=!
+16!
+#80
+0$
+0=!
+06!
+#85
+1$
+1=!
+16!
+#90
+0$
+0=!
+06!
+#95
+1$
+1=!
+16!
+#100
+0$
+0=!
+06!
+#105
+1$
+1=!
+16!
+#110
+0$
+0=!
+06!
+#115
+1$
+1=!
+16!
+#120
+0$
+0=!
+06!
+#125
+1$
+1=!
+16!
+#130
+0$
+0=!
+06!
+#135
+1$
+1=!
+16!
+#140
+0$
+0=!
+06!
+#145
+1$
+1=!
+16!
+#150
+0$
+0=!
+06!
