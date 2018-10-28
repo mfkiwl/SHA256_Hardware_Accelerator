@@ -32,7 +32,7 @@ module sram     #(parameter  ADDR_WIDTH      = 8   ,
     //--------------------------------------------------------
     // Associative memory
 
-    bit  [DATA_WIDTH-1 :0  ]     mem     [int] = '{default: 'X};
+    bit  [DATA_WIDTH-1 :0  ]     mem     [int] = '{default: 'X};	// Associative Arrays http://www.asic-world.com/systemverilog/data_types13.html
 
 
     //--------------------------------------------------------
