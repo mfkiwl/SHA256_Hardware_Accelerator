@@ -2,7 +2,7 @@
  * Name: sram_controller_test.v
  * Date/Time: 10/28/2018 02:30
  * Author: Soumil Krishnanand Heble
- * ECE564 Final Project Pipelined SRAM Controller
+ * ECE564 Final Project Pipelined SRAM Controller Test Script
  */
 
 module test_sramcontroller();
@@ -38,7 +38,7 @@ initial
 	reset = 1;
 	enable_sig = 0;
 	rw_sig = 0;
-	addr_sig = {$clog2( MAX_MESSAGE_LENGTH)-1{1'b0}};
+	addr_sig = {$clog2( MAX_MESSAGE_LENGTH){1'b0}};
 	write_data_sig = {SYMBOL_WIDTH{1'b0}};
 
 	#5 reset = 0;

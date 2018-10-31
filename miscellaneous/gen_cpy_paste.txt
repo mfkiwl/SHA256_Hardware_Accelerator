@@ -1,0 +1,256 @@
+		6'd0: begin
+			pad_mem[7:0] <= data_sel;
+		end
+
+		6'd1: begin
+			pad_mem[15:8] <= data_sel;
+		end
+
+		6'd2: begin
+			pad_mem[23:16] <= data_sel;
+		end
+
+		6'd3: begin
+			pad_mem[31:24] <= data_sel;
+		end
+
+		6'd4: begin
+			pad_mem[39:32] <= data_sel;
+		end
+
+		6'd5: begin
+			pad_mem[47:40] <= data_sel;
+		end
+
+		6'd6: begin
+			pad_mem[55:48] <= data_sel;
+		end
+
+		6'd7: begin
+			pad_mem[63:56] <= data_sel;
+		end
+
+		6'd8: begin
+			pad_mem[71:64] <= data_sel;
+		end
+
+		6'd9: begin
+			pad_mem[79:72] <= data_sel;
+		end
+
+		6'd10: begin
+			pad_mem[87:80] <= data_sel;
+		end
+
+		6'd11: begin
+			pad_mem[95:88] <= data_sel;
+		end
+
+		6'd12: begin
+			pad_mem[103:96] <= data_sel;
+		end
+
+		6'd13: begin
+			pad_mem[111:104] <= data_sel;
+		end
+
+		6'd14: begin
+			pad_mem[119:112] <= data_sel;
+		end
+
+		6'd15: begin
+			pad_mem[127:120] <= data_sel;
+		end
+
+		6'd16: begin
+			pad_mem[135:128] <= data_sel;
+		end
+
+		6'd17: begin
+			pad_mem[143:136] <= data_sel;
+		end
+
+		6'd18: begin
+			pad_mem[151:144] <= data_sel;
+		end
+
+		6'd19: begin
+			pad_mem[159:152] <= data_sel;
+		end
+
+		6'd20: begin
+			pad_mem[167:160] <= data_sel;
+		end
+
+		6'd21: begin
+			pad_mem[175:168] <= data_sel;
+		end
+
+		6'd22: begin
+			pad_mem[183:176] <= data_sel;
+		end
+
+		6'd23: begin
+			pad_mem[191:184] <= data_sel;
+		end
+
+		6'd24: begin
+			pad_mem[199:192] <= data_sel;
+		end
+
+		6'd25: begin
+			pad_mem[207:200] <= data_sel;
+		end
+
+		6'd26: begin
+			pad_mem[215:208] <= data_sel;
+		end
+
+		6'd27: begin
+			pad_mem[223:216] <= data_sel;
+		end
+
+		6'd28: begin
+			pad_mem[231:224] <= data_sel;
+		end
+
+		6'd29: begin
+			pad_mem[239:232] <= data_sel;
+		end
+
+		6'd30: begin
+			pad_mem[247:240] <= data_sel;
+		end
+
+		6'd31: begin
+			pad_mem[255:248] <= data_sel;
+		end
+
+		6'd32: begin
+			pad_mem[263:256] <= data_sel;
+		end
+
+		6'd33: begin
+			pad_mem[271:264] <= data_sel;
+		end
+
+		6'd34: begin
+			pad_mem[279:272] <= data_sel;
+		end
+
+		6'd35: begin
+			pad_mem[287:280] <= data_sel;
+		end
+
+		6'd36: begin
+			pad_mem[295:288] <= data_sel;
+		end
+
+		6'd37: begin
+			pad_mem[303:296] <= data_sel;
+		end
+
+		6'd38: begin
+			pad_mem[311:304] <= data_sel;
+		end
+
+		6'd39: begin
+			pad_mem[319:312] <= data_sel;
+		end
+
+		6'd40: begin
+			pad_mem[327:320] <= data_sel;
+		end
+
+		6'd41: begin
+			pad_mem[335:328] <= data_sel;
+		end
+
+		6'd42: begin
+			pad_mem[343:336] <= data_sel;
+		end
+
+		6'd43: begin
+			pad_mem[351:344] <= data_sel;
+		end
+
+		6'd44: begin
+			pad_mem[359:352] <= data_sel;
+		end
+
+		6'd45: begin
+			pad_mem[367:360] <= data_sel;
+		end
+
+		6'd46: begin
+			pad_mem[375:368] <= data_sel;
+		end
+
+		6'd47: begin
+			pad_mem[383:376] <= data_sel;
+		end
+
+		6'd48: begin
+			pad_mem[391:384] <= data_sel;
+		end
+
+		6'd49: begin
+			pad_mem[399:392] <= data_sel;
+		end
+
+		6'd50: begin
+			pad_mem[407:400] <= data_sel;
+		end
+
+		6'd51: begin
+			pad_mem[415:408] <= data_sel;
+		end
+
+		6'd52: begin
+			pad_mem[423:416] <= data_sel;
+		end
+
+		6'd53: begin
+			pad_mem[431:424] <= data_sel;
+		end
+
+		6'd54: begin
+			pad_mem[439:432] <= data_sel;
+		end
+
+		6'd55: begin
+			pad_mem[447:440] <= data_sel;
+		end
+
+		6'd56: begin
+			pad_mem[455:448] <= data_sel;
+		end
+
+		6'd57: begin
+			pad_mem[463:456] <= data_sel;
+		end
+
+		6'd58: begin
+			pad_mem[471:464] <= data_sel;
+		end
+
+		6'd59: begin
+			pad_mem[479:472] <= data_sel;
+		end
+
+		6'd60: begin
+			pad_mem[487:480] <= data_sel;
+		end
+
+		6'd61: begin
+			pad_mem[495:488] <= data_sel;
+		end
+
+		6'd62: begin
+			pad_mem[503:496] <= data_sel;
+		end
+
+		6'd63: begin
+			pad_mem[511:504] <= data_sel;
+		end
+

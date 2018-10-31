@@ -1,3 +1,10 @@
+/*
+ * Name: sram_controller.v
+ * Date/Time: 10/28/2018 02:00
+ * Author: Soumil Krishnanand Heble
+ * ECE564 Final Project Pipelined SRAM Controller
+ */
+
 module sram_controller	#(parameter ADDR_WIDTH = 3,
 			  parameter DATA_WIDTH = 32)
 
