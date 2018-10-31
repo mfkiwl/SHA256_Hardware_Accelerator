@@ -1,11 +1,11 @@
 /**
- * \file gen_halfkb_test.v
+ * \file gen_pad_msg_test.v
  * \date 10/30/2018
  * \author Soumil Krishnanand Heble
  * \brief SHA256 Padded Message Generator Test Bench
  */
 
-module test_genhalfkb();
+module test_genpadmsg();
 
 parameter CLK_PHASE=5;
 parameter MAX_MESSAGE_LENGTH=55;
@@ -23,7 +23,7 @@ wire [511:0] mem_pad_mem;
 
 initial
 begin
-	$dumpfile("gen_halfkb.vcd");
+	$dumpfile("wave_genpadmsg.vcd");
 	$dumpvars;
 
 	clock=1'b0;
@@ -53,6 +53,6 @@ sram #( .ADDR_WIDTH    ($clog2(MAX_MESSAGE_LENGTH)),
 			.clock        ( clock )
 		);
 
-gen_halfkb U0 (.clock(clock), .reset(reset), .go_sig(dut_go), .msg_len(sha_msg_length), .msg_mem_data(mem_sram_data), .pad_msg_rdy(finish_sig), .msg_mem_en(mem_sram_en), .msg_mem_addr(mem_sram_addr), .pad_mem(mem_pad_mem));
+gen_pad_msg U0 (.clock(clock), .reset(reset), .go_sig(dut_go), .msg_len(sha_msg_length), .msg_mem_data(mem_sram_data), .pad_msg_rdy(finish_sig), .msg_mem_en(mem_sram_en), .msg_mem_addr(mem_sram_addr), .pad_mem(mem_pad_mem));
 
 endmodule

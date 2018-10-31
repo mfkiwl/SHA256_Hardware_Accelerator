@@ -1,0 +1,55 @@
+# //  ModelSim SE 10.3b May 29 2014 Linux 3.10.0-862.14.4.el7.x86_64
+# //
+# //  Copyright 1991-2014 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# vsim -novopt test_genpadmsg 
+# Start time: 22:59:41 on Oct 30,2018
+# ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
+# Loading sv_std.std
+# Loading work.test_genpadmsg
+# Loading work.sram
+# Loading work.gen_pad_msg
+add wave -position insertpoint  \
+sim:/test_genpadmsg/U0/clock \
+sim:/test_genpadmsg/U0/reset \
+sim:/test_genpadmsg/U0/go_sig \
+sim:/test_genpadmsg/U0/msg_len \
+sim:/test_genpadmsg/U0/msg_mem_data \
+sim:/test_genpadmsg/U0/msg_mem_en \
+sim:/test_genpadmsg/U0/msg_mem_addr \
+sim:/test_genpadmsg/U0/pad_mem \
+sim:/test_genpadmsg/U0/pad_msg_rdy \
+sim:/test_genpadmsg/U0/current_state \
+sim:/test_genpadmsg/U0/curr_addr \
+sim:/test_genpadmsg/U0/comp_addr \
+sim:/test_genpadmsg/U0/next_state \
+sim:/test_genpadmsg/U0/data_sel \
+sim:/test_genpadmsg/U0/next_addr \
+sim:/test_genpadmsg/U0/access_dat
+run -all
+# INFO::readmem : ../../HDL/run_s/message.dat 
+# ** Note: $finish    : gen_pad_msg_test.v(39)
+#    Time: 1015 ns  Iteration: 0  Instance: /test_genpadmsg
+# 1
+# Break in Module test_genpadmsg at gen_pad_msg_test.v line 39
+restart -f
+# Closing VCD file "wave_genpadmsg.vcd"
+# ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
+# Loading sv_std.std
+# Loading work.test_genpadmsg
+# Loading work.sram
+# Loading work.gen_pad_msg
+run -all
+# INFO::readmem : ../../HDL/run_s/message.dat 
+# ** Note: $finish    : gen_pad_msg_test.v(39)
+#    Time: 1015 ns  Iteration: 0  Instance: /test_genpadmsg
+# 1
+# Break in Module test_genpadmsg at gen_pad_msg_test.v line 39
+# Window cannot be closed because the modal window "Quit Vsim" is still open.
+# End time: 23:23:40 on Oct 30,2018, Elapsed time: 0:23:59
+# Errors: 0, Warnings: 3
