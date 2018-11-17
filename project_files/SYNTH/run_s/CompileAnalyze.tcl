@@ -16,7 +16,7 @@
 # Revision History: 01/18/2011, by Zhuo Yan
 ##################################################
 
- compile -map_effort medium
+ compile -map_effort high
 
 #---------------------------------------------------------
 # This is just a sanity check: Write out the design before 

@@ -2,13 +2,13 @@
 set clkname clock
 
 # set variable "modname" to the name of topmost module in design
-set modname StatCount
+set modname gen_padded
 
 # set variable "RTL_DIR" to the HDL directory w.r.t synthesis directory
 set RTL_DIR    ../../HDL/run_s/
 
 # set variable "type" to a name that distinguishes this synthesis run
-set type hw6
+set type genpadded
 
 #set the number of digits to be used for delay results
 set report_default_significant_digits 4

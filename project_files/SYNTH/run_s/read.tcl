@@ -19,4 +19,4 @@
 # latches                                            
 #---------------------------------------------------------
 
-read_verilog $RTL_DIR/StatCount.v
+read_verilog $RTL_DIR/gen_padded.v
