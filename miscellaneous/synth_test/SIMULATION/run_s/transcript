@@ -1,0 +1,507 @@
+# //  ModelSim SE-64 10.6c Jul 25 2017Linux 3.10.0-862.14.4.el7.x86_64
+# //
+# //  Copyright 1991-2017 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  ModelSim SE-64 and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# vsim -novopt testfixture 
+# Start time: 16:16:29 on Nov 17,2018
+# ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
+# Loading work.testfixture
+# Loading work.fp_2
+# Loading work.DFF_X1
+# Loading work.DFF_X2
+# Loading work.SDFF_X1
+# Loading work.NOR2_X2
+# Loading work.XOR2_X2
+# Loading work.NAND2_X2
+# Loading work.XNOR2_X2
+# Loading work.OAI221_X2
+# Loading work.NAND4_X2
+# Loading work.NOR3_X2
+# Loading work.AOI221_X2
+# Loading work.NOR4_X2
+# Loading work.AND3_X2
+# Loading work.NAND3_X2
+# Loading work.INV_X4
+# Loading work.AND2_X1
+# Loading work.OR2_X1
+# Loading work.OAI22_X2
+# Loading work.AOI21_X2
+# Loading work.AOI222_X1
+# Loading work.OAI21_X2
+# Loading work.OAI211_X2
+# Loading work.AOI22_X2
+# Loading work.AOI211_X2
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(143): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/in3_holding_reg_31_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(143): [TFMPC] - Missing connection for port 'QN'.
+# Loading work.seq14
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(144): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/in3_holding_reg_30_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(144): [TFMPC] - Missing connection for port 'Q'.
+# Loading work.seq15
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(145): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/in3_holding_reg_29_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(145): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(152): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/in3_holding_reg_25_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(152): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(153): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/in3_holding_reg_24_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(153): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(154): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/in3_holding_reg_23_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(154): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(155): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/in3_holding_reg_22_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(155): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(156): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/in3_holding_reg_21_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(156): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(157): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/in3_holding_reg_20_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(157): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(158): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/in3_holding_reg_19_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(158): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(161): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/in3_holding_reg_17_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(161): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(166): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/in3_holding_reg_14_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(166): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(167): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/in3_holding_reg_13_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(167): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(176): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/in3_holding_reg_8_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(176): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(179): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/in3_holding_reg_6_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(179): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(180): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/in3_holding_reg_5_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(180): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(183): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/in3_holding_reg_3_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(183): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(184): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/in3_holding_reg_2_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(184): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(185): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/in3_holding_reg_1_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(185): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(186): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/in3_holding_reg_0_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(186): [TFMPC] - Missing connection for port 'Q'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(187): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/shift_1_reg_31_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(187): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(190): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/shift_1_reg_29_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(190): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(197): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/shift_1_reg_25_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(197): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(198): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/shift_1_reg_24_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(198): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(199): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/shift_1_reg_23_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(199): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(200): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/shift_1_reg_22_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(200): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(201): [TFMPC] - Too few port connections. Expected 6, found 5.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/shift_1_reg_21_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(201): [TFMPC] - Missing connection for port 'QN'.
+# Loading work.seq26
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(203): [TFMPC] - Too few port connections. Expected 6, found 5.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/shift_1_reg_20_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(203): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(205): [TFMPC] - Too few port connections. Expected 6, found 5.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/shift_1_reg_19_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(205): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(209): [TFMPC] - Too few port connections. Expected 6, found 5.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/shift_1_reg_17_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(209): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(215): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/shift_1_reg_14_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(215): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(216): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/shift_1_reg_13_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(216): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(224): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/shift_1_reg_8_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(224): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(226): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/shift_1_reg_6_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(226): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(227): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/shift_1_reg_5_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(227): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(229): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/shift_1_reg_3_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(229): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(230): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/shift_1_reg_2_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(230): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(231): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/shift_1_reg_1_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(231): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(232): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/shift_1_reg_0_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(232): [TFMPC] - Missing connection for port 'Q'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(233): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/in4_holding_reg_31_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(233): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(234): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/in4_holding_reg_30_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(234): [TFMPC] - Missing connection for port 'Q'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(235): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/in4_holding_reg_29_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(235): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(242): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/in4_holding_reg_25_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(242): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(243): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/in4_holding_reg_24_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(243): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(244): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/in4_holding_reg_23_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(244): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(245): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/in4_holding_reg_22_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(245): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(246): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/in4_holding_reg_21_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(246): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(247): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/in4_holding_reg_20_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(247): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(248): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/in4_holding_reg_19_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(248): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(251): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/in4_holding_reg_17_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(251): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(256): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/in4_holding_reg_14_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(256): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(257): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/in4_holding_reg_13_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(257): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(266): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/in4_holding_reg_8_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(266): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(269): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/in4_holding_reg_6_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(269): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(270): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/in4_holding_reg_5_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(270): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(273): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/in4_holding_reg_3_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(273): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(274): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/in4_holding_reg_2_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(274): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(275): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/in4_holding_reg_1_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(275): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(276): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/in4_holding_reg_0_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(276): [TFMPC] - Missing connection for port 'Q'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(277): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/shift_2_reg_31_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(277): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(280): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/shift_2_reg_29_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(280): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(287): [TFMPC] - Too few port connections. Expected 6, found 5.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/shift_2_reg_25_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(287): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(289): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/shift_2_reg_24_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(289): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(290): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/shift_2_reg_23_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(290): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(291): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/shift_2_reg_22_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(291): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(292): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/shift_2_reg_21_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(292): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(293): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/shift_2_reg_20_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(293): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(294): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/shift_2_reg_19_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(294): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(297): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/shift_2_reg_17_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(297): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(302): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/shift_2_reg_14_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(302): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(303): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/shift_2_reg_13_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(303): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(311): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/shift_2_reg_8_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(311): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(313): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/shift_2_reg_6_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(313): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(314): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/shift_2_reg_5_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(314): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(316): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/shift_2_reg_3_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(316): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(317): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/shift_2_reg_2_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(317): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(318): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/shift_2_reg_1_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(318): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(319): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/shift_2_reg_0_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(319): [TFMPC] - Missing connection for port 'Q'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(320): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/adr_1_op_reg_31_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(320): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(323): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/adr_1_op_reg_29_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(323): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(330): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/adr_1_op_reg_25_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(330): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(331): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/adr_1_op_reg_24_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(331): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(332): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/adr_1_op_reg_23_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(332): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(333): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/adr_1_op_reg_22_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(333): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(334): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/adr_1_op_reg_21_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(334): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(335): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/adr_1_op_reg_20_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(335): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(336): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/adr_1_op_reg_19_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(336): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(339): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/adr_1_op_reg_17_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(339): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(344): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/adr_1_op_reg_14_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(344): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(345): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/adr_1_op_reg_13_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(345): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(353): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/adr_1_op_reg_8_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(353): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(355): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/adr_1_op_reg_6_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(355): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(356): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/adr_1_op_reg_5_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(356): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(358): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/adr_1_op_reg_3_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(358): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(359): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/adr_1_op_reg_2_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(359): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(360): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/adr_1_op_reg_1_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(360): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(361): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/adr_1_op_reg_0_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(361): [TFMPC] - Missing connection for port 'Q'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(362): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/adr_2_op_reg_31_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(362): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(363): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/adr_2_op_reg_30_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(363): [TFMPC] - Missing connection for port 'Q'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(364): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/adr_2_op_reg_29_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(364): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(371): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/adr_2_op_reg_25_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(371): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(372): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/adr_2_op_reg_24_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(372): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(373): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/adr_2_op_reg_23_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(373): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(374): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/adr_2_op_reg_22_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(374): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(375): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/adr_2_op_reg_21_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(375): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(376): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/adr_2_op_reg_20_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(376): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(377): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/adr_2_op_reg_19_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(377): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(380): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/adr_2_op_reg_17_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(380): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(385): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/adr_2_op_reg_14_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(385): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(386): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/adr_2_op_reg_13_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(386): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(394): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/adr_2_op_reg_8_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(394): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(396): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/adr_2_op_reg_6_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(396): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(397): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/adr_2_op_reg_5_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(397): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(399): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/adr_2_op_reg_3_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(399): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(400): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/adr_2_op_reg_2_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(400): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(401): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/adr_2_op_reg_1_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(401): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(402): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/adr_2_op_reg_0_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(402): [TFMPC] - Missing connection for port 'Q'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(1161): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/ops_out_reg_0_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(1161): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(1162): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/ops_out_reg_1_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(1162): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(1163): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/ops_out_reg_3_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(1163): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(1164): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/ops_out_reg_10_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(1164): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(1165): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/ops_out_reg_11_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(1165): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(1166): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/ops_out_reg_12_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(1166): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(1167): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/ops_out_reg_13_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(1167): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(1168): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/ops_out_reg_14_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(1168): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(1169): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/ops_out_reg_15_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(1169): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(1170): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/ops_out_reg_16_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(1170): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(1171): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/ops_out_reg_17_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(1171): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(1172): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/ops_out_reg_18_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(1172): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(1173): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/ops_out_reg_19_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(1173): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(1174): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/ops_out_reg_20_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(1174): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(1175): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/ops_out_reg_21_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(1175): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(1176): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/ops_out_reg_22_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(1176): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(1177): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/ops_out_reg_23_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(1177): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(1178): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/ops_out_reg_24_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(1178): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(1179): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/ops_out_reg_25_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(1179): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(1180): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/ops_out_reg_26_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(1180): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(1181): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/ops_out_reg_27_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(1181): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(1182): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/ops_out_reg_28_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(1182): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(1183): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/ops_out_reg_29_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(1183): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(1184): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/ops_out_reg_30_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(1184): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(1185): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/ops_out_reg_31_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(1185): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(1186): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/ops_out_reg_8_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(1186): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(1187): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/ops_out_reg_9_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(1187): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(1188): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/ops_out_reg_4_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(1188): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(1189): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/ops_out_reg_5_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(1189): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(1190): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/ops_out_reg_6_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(1190): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(1191): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/ops_out_reg_7_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(1191): [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: (vsim-3017) ../../HDL/run_synth/fp_2_final_pparch.v(1192): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ns  Iteration: 0  Instance: /testfixture/U3/ops_out_reg_2_ File: /afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NangateOpenCellLibrary_PDKv1_2_v2008_10/verilog/NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_conditional.v
+# ** Warning: (vsim-3722) ../../HDL/run_synth/fp_2_final_pparch.v(1192): [TFMPC] - Missing connection for port 'QN'.
+add wave -position insertpoint  \
+sim:/testfixture/clock \
+sim:/testfixture/reset \
+sim:/testfixture/in1 \
+sim:/testfixture/in2 \
+sim:/testfixture/in3 \
+sim:/testfixture/in4 \
+sim:/testfixture/res_out
+run -all
+# ** Note: $finish    : test_final.v(26)
+#    Time: 115 ns  Iteration: 0  Instance: /testfixture
+# 1
+# Break in Module testfixture at test_final.v line 26
+# End time: 16:20:01 on Nov 17,2018, Elapsed time: 0:03:32
+# Errors: 0, Warnings: 299

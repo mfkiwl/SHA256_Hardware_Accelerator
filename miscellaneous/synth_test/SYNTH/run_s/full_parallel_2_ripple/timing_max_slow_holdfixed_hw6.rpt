@@ -1,0 +1,83 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : fp_2
+Version: H-2013.03-SP2
+Date   : Sat Nov 17 15:37:29 2018
+****************************************
+
+Operating Conditions: slow   Library: NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_nldm
+Wire Load Model Mode: top
+
+  Startpoint: in3_holding_reg[0]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: adr_1_op_reg[31]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clock (rise edge)                0.0000     0.0000
+  clock network delay (ideal)            0.0000     0.0000
+  in3_holding_reg[0]/CK (DFF_X2)         0.0000     0.0000 r
+  in3_holding_reg[0]/Q (DFF_X2)          0.5905     0.5905 f
+  U342/ZN (NAND2_X2)                     0.1543     0.7448 r
+  U432/ZN (OAI22_X2)                     0.1431     0.8880 f
+  U564/ZN (AOI22_X2)                     0.3583     1.2462 r
+  U426/ZN (INV_X4)                       0.0428     1.2890 f
+  U387/ZN (AOI22_X2)                     0.3518     1.6408 r
+  U483/ZN (OAI22_X2)                     0.1870     1.8278 f
+  U508/ZN (AOI22_X2)                     0.3495     2.1773 r
+  U664/ZN (OAI22_X2)                     0.1720     2.3493 f
+  U428/ZN (INV_X4)                       0.0772     2.4264 r
+  U417/ZN (OAI22_X2)                     0.1021     2.5285 f
+  U509/ZN (AOI22_X2)                     0.3473     2.8758 r
+  U706/ZN (OAI22_X2)                     0.1827     3.0585 f
+  U420/ZN (AOI22_X2)                     0.3489     3.4074 r
+  U731/ZN (OAI22_X2)                     0.1785     3.5859 f
+  U565/ZN (AOI22_X2)                     0.3475     3.9334 r
+  U752/ZN (OAI22_X2)                     0.1785     4.1119 f
+  U544/ZN (AOI22_X2)                     0.3599     4.4718 r
+  U436/ZN (INV_X4)                       0.0428     4.5146 f
+  U421/ZN (AOI22_X2)                     0.3387     4.8534 r
+  U786/ZN (OAI22_X2)                     0.1785     5.0319 f
+  U566/ZN (AOI22_X2)                     0.3608     5.3927 r
+  U437/ZN (INV_X4)                       0.0428     5.4355 f
+  U422/ZN (AOI22_X2)                     0.3388     5.7743 r
+  U818/ZN (OAI22_X2)                     0.1785     5.9529 f
+  U545/ZN (AOI22_X2)                     0.3475     6.3004 r
+  U842/ZN (OAI22_X2)                     0.1785     6.4789 f
+  U567/ZN (AOI22_X2)                     0.3475     6.8264 r
+  U866/ZN (OAI22_X2)                     0.1825     7.0088 f
+  U429/ZN (INV_X4)                       0.0650     7.0739 r
+  U418/ZN (OAI22_X2)                     0.0974     7.1712 f
+  U510/ZN (AOI22_X2)                     0.3473     7.5185 r
+  U900/ZN (OAI22_X2)                     0.1823     7.7008 f
+  U568/ZN (AOI22_X2)                     0.3612     8.0620 r
+  U424/ZN (INV_X4)                       0.0428     8.1048 f
+  U423/ZN (AOI22_X2)                     0.3387     8.4436 r
+  U932/ZN (OAI22_X2)                     0.1823     8.6259 f
+  U547/ZN (AOI22_X2)                     0.3350     8.9609 r
+  U507/ZN (XNOR2_X2)                     0.3235     9.2844 r
+  U944/ZN (NOR2_X2)                      0.0831     9.3675 f
+  adr_1_op_reg[31]/D (DFF_X2)            0.0000     9.3675 f
+  data arrival time                                 9.3675
+
+  clock clock (rise edge)               10.0000    10.0000
+  clock network delay (ideal)            0.0000    10.0000
+  clock uncertainty                     -0.0500     9.9500
+  adr_1_op_reg[31]/CK (DFF_X2)           0.0000     9.9500 r
+  library setup time                    -0.3273     9.6227
+  data required time                                9.6227
+  -----------------------------------------------------------
+  data required time                                9.6227
+  data arrival time                                -9.3675
+  -----------------------------------------------------------
+  slack (MET)                                       0.2553
+
+
+1

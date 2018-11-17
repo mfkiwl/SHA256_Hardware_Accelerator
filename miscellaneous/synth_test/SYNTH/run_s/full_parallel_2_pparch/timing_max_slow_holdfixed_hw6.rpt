@@ -1,0 +1,67 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : fp_2
+Version: H-2013.03-SP2
+Date   : Sat Nov 17 15:39:06 2018
+****************************************
+
+Operating Conditions: slow   Library: NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_nldm
+Wire Load Model Mode: top
+
+  Startpoint: shift_1_reg[1]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: adr_1_op_reg[30]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clock (rise edge)                0.0000     0.0000
+  clock network delay (ideal)            0.0000     0.0000
+  shift_1_reg[1]/CK (DFF_X1)             0.0000     0.0000 r
+  shift_1_reg[1]/Q (DFF_X1)              0.6091     0.6091 f
+  U1040/ZN (OAI21_X2)                    0.2486     0.8577 r
+  U734/ZN (INV_X4)                       0.0391     0.8968 f
+  U1039/ZN (AOI21_X2)                    0.3294     1.2262 r
+  U733/ZN (INV_X4)                       0.0596     1.2858 f
+  U1046/ZN (OAI211_X2)                   0.2190     1.5048 r
+  U1045/ZN (OAI211_X2)                   0.1958     1.7006 f
+  U380/ZN (NAND3_X2)                     0.1589     1.8596 r
+  U998/ZN (AOI21_X2)                     0.0927     1.9523 f
+  U997/ZN (OAI21_X2)                     0.1861     2.1384 r
+  U375/ZN (NAND2_X2)                     0.1413     2.2797 f
+  U335/ZN (NAND4_X2)                     0.2198     2.4995 r
+  U1027/ZN (OAI211_X2)                   0.1988     2.6982 f
+  U992/ZN (AOI21_X2)                     0.3110     3.0093 r
+  U711/ZN (INV_X4)                       0.0399     3.0491 f
+  U1051/ZN (OAI21_X2)                    0.1996     3.2488 r
+  U280/ZN (NOR4_X2)                      0.1233     3.3721 f
+  U279/ZN (AOI221_X2)                    0.6201     3.9921 r
+  U257/ZN (NOR3_X2)                      0.1147     4.1068 f
+  U256/ZN (OAI221_X2)                    0.2285     4.3353 r
+  U255/ZN (OAI221_X2)                    0.2770     4.6124 f
+  U1048/ZN (AOI21_X2)                    0.2555     4.8678 r
+  U237/Z (XOR2_X2)                       0.3804     5.2483 r
+  U236/ZN (NOR2_X2)                      0.0890     5.3373 f
+  adr_1_op_reg[30]/D (DFF_X1)            0.0000     5.3373 f
+  data arrival time                                 5.3373
+
+  clock clock (rise edge)               10.0000    10.0000
+  clock network delay (ideal)            0.0000    10.0000
+  clock uncertainty                     -0.0500     9.9500
+  adr_1_op_reg[30]/CK (DFF_X1)           0.0000     9.9500 r
+  library setup time                    -0.3363     9.6137
+  data required time                                9.6137
+  -----------------------------------------------------------
+  data required time                                9.6137
+  data arrival time                                -5.3373
+  -----------------------------------------------------------
+  slack (MET)                                       4.2764
+
+
+1
