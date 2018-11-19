@@ -1,15 +1,16 @@
 /**
- * \file gen_padded.v
- * \date 11/4/2018
+ * \file gen_padded_new_test.v
+ * \date 11/19/2018
  * \author Soumil Krishnanand Heble
  * \brief SHA256 Padded Message Generator Test Bench
  */
 
-module test_genpadded();
+module test_genpaddednew();
 
 parameter CLK_PHASE=5;
 parameter MAX_MESSAGE_LENGTH=55;
 parameter SYMBOL_WIDTH=8;
+parameter MSG_LEN=6'd55;
 
 reg clock;
 reg dut_reset;
@@ -23,15 +24,16 @@ wire [511:0] dut_pad_reg;
 wire dut_finish_sig;
 
 /** Go Finish */
+/*
 initial
 begin
-	$dumpfile("../vcd_files/wave_genpadded.vcd");
+	$dumpfile("wave_genpadmsg.vcd");
 	$dumpvars;
 
 	clock=1'b0;
 	dut_reset=1'b1;
 	dut_go = 1'b0;
-	dut_msg_length = 6'd7;
+	dut_msg_length = MSG_LEN;
 
 	#5 dut_reset=1'b1;
 	
@@ -41,20 +43,21 @@ begin
 
 	#10 dut_go = 1'b0;
 
-	#150 $finish;
+	#1500 $finish;
 end
+*/
 
 /** Go Wait Go Finish */
 /*
 initial
 begin
-	$dumpfile("../vcd_files/wave_genpadded.vcd");
+	$dumpfile("wave_genpadmsg.vcd");
 	$dumpvars;
 
 	clock=1'b0;
 	dut_reset=1'b1;
 	dut_go = 1'b0;
-	dut_msg_length = 6'd7;
+	dut_msg_length = MSG_LEN;
 
 	#5 dut_reset=1'b1;
 	
@@ -68,21 +71,20 @@ begin
 	
 	#20 dut_go = 1'b0;
 
-	#150 $finish;
+	#650 $finish;
 end
 */
 
 /** Go Finish Go Finish */
-/*
 initial
 begin
-	$dumpfile("../vcd_files/wave_genpadded.vcd");
+	$dumpfile("wave_genpadmsg.vcd");
 	$dumpvars;
 
 	clock=1'b0;
 	dut_reset=1'b1;
 	dut_go = 1'b0;
-	dut_msg_length = 6'd7;
+	dut_msg_length = MSG_LEN;
 
 	#5 dut_reset=1'b1;
 	
@@ -92,25 +94,24 @@ begin
 
 	#10 dut_go = 1'b0;
 
-	#150 dut_go = 1'b1;
+	#600 dut_go = 1'b1;
 	
 	#10 dut_go = 1'b0;
 	
-	#150 $finish;
+	#650 $finish;
 end
-*/
 
 /** Go Go Go Go Go */
 /*
 initial
 begin
-	$dumpfile("../vcd_files/wave_genpadded.vcd");
+	$dumpfile("wave_genpadmsg.vcd");
 	$dumpvars;
 
 	clock=1'b0;
 	dut_reset=1'b1;
 	dut_go = 1'b0;
-	dut_msg_length = 6'd7;
+	dut_msg_length = MSG_LEN;
 
 	#5 dut_reset=1'b1;
 	
@@ -118,7 +119,7 @@ begin
 	
 	#10 dut_go = 1'b1;
 
-	#600 $finish;
+	#650 $finish;
 end
 */
 
@@ -126,7 +127,7 @@ always #CLK_PHASE clock = ~clock;
 
 sram #( .ADDR_WIDTH    ($clog2(MAX_MESSAGE_LENGTH)),
 	.DATA_WIDTH    ( SYMBOL_WIDTH ),
-	.MEM_INIT_FILE ( "../../HDL/run_s/message.dat" ))
+	.MEM_INIT_FILE ( "../../HDL/run_s/message55.dat" ))
 	msg_mem	(
 				.address      ( dut_mem_sram_addr ),
 				.write_data   ( {SYMBOL_WIDTH {1'b0}} ),
