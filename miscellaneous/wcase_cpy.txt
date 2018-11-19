@@ -1,0 +1,256 @@
+	    6'd0: begin
+		  w_regf[0] = final_add_res;
+	    end
+
+	    6'd1: begin
+		  w_regf[1] = final_add_res;
+	    end
+
+	    6'd2: begin
+		  w_regf[2] = final_add_res;
+	    end
+
+	    6'd3: begin
+		  w_regf[3] = final_add_res;
+	    end
+
+	    6'd4: begin
+		  w_regf[4] = final_add_res;
+	    end
+
+	    6'd5: begin
+		  w_regf[5] = final_add_res;
+	    end
+
+	    6'd6: begin
+		  w_regf[6] = final_add_res;
+	    end
+
+	    6'd7: begin
+		  w_regf[7] = final_add_res;
+	    end
+
+	    6'd8: begin
+		  w_regf[8] = final_add_res;
+	    end
+
+	    6'd9: begin
+		  w_regf[9] = final_add_res;
+	    end
+
+	    6'd10: begin
+		  w_regf[10] = final_add_res;
+	    end
+
+	    6'd11: begin
+		  w_regf[11] = final_add_res;
+	    end
+
+	    6'd12: begin
+		  w_regf[12] = final_add_res;
+	    end
+
+	    6'd13: begin
+		  w_regf[13] = final_add_res;
+	    end
+
+	    6'd14: begin
+		  w_regf[14] = final_add_res;
+	    end
+
+	    6'd15: begin
+		  w_regf[15] = final_add_res;
+	    end
+
+	    6'd16: begin
+		  w_regf[16] = final_add_res;
+	    end
+
+	    6'd17: begin
+		  w_regf[17] = final_add_res;
+	    end
+
+	    6'd18: begin
+		  w_regf[18] = final_add_res;
+	    end
+
+	    6'd19: begin
+		  w_regf[19] = final_add_res;
+	    end
+
+	    6'd20: begin
+		  w_regf[20] = final_add_res;
+	    end
+
+	    6'd21: begin
+		  w_regf[21] = final_add_res;
+	    end
+
+	    6'd22: begin
+		  w_regf[22] = final_add_res;
+	    end
+
+	    6'd23: begin
+		  w_regf[23] = final_add_res;
+	    end
+
+	    6'd24: begin
+		  w_regf[24] = final_add_res;
+	    end
+
+	    6'd25: begin
+		  w_regf[25] = final_add_res;
+	    end
+
+	    6'd26: begin
+		  w_regf[26] = final_add_res;
+	    end
+
+	    6'd27: begin
+		  w_regf[27] = final_add_res;
+	    end
+
+	    6'd28: begin
+		  w_regf[28] = final_add_res;
+	    end
+
+	    6'd29: begin
+		  w_regf[29] = final_add_res;
+	    end
+
+	    6'd30: begin
+		  w_regf[30] = final_add_res;
+	    end
+
+	    6'd31: begin
+		  w_regf[31] = final_add_res;
+	    end
+
+	    6'd32: begin
+		  w_regf[32] = final_add_res;
+	    end
+
+	    6'd33: begin
+		  w_regf[33] = final_add_res;
+	    end
+
+	    6'd34: begin
+		  w_regf[34] = final_add_res;
+	    end
+
+	    6'd35: begin
+		  w_regf[35] = final_add_res;
+	    end
+
+	    6'd36: begin
+		  w_regf[36] = final_add_res;
+	    end
+
+	    6'd37: begin
+		  w_regf[37] = final_add_res;
+	    end
+
+	    6'd38: begin
+		  w_regf[38] = final_add_res;
+	    end
+
+	    6'd39: begin
+		  w_regf[39] = final_add_res;
+	    end
+
+	    6'd40: begin
+		  w_regf[40] = final_add_res;
+	    end
+
+	    6'd41: begin
+		  w_regf[41] = final_add_res;
+	    end
+
+	    6'd42: begin
+		  w_regf[42] = final_add_res;
+	    end
+
+	    6'd43: begin
+		  w_regf[43] = final_add_res;
+	    end
+
+	    6'd44: begin
+		  w_regf[44] = final_add_res;
+	    end
+
+	    6'd45: begin
+		  w_regf[45] = final_add_res;
+	    end
+
+	    6'd46: begin
+		  w_regf[46] = final_add_res;
+	    end
+
+	    6'd47: begin
+		  w_regf[47] = final_add_res;
+	    end
+
+	    6'd48: begin
+		  w_regf[48] = final_add_res;
+	    end
+
+	    6'd49: begin
+		  w_regf[49] = final_add_res;
+	    end
+
+	    6'd50: begin
+		  w_regf[50] = final_add_res;
+	    end
+
+	    6'd51: begin
+		  w_regf[51] = final_add_res;
+	    end
+
+	    6'd52: begin
+		  w_regf[52] = final_add_res;
+	    end
+
+	    6'd53: begin
+		  w_regf[53] = final_add_res;
+	    end
+
+	    6'd54: begin
+		  w_regf[54] = final_add_res;
+	    end
+
+	    6'd55: begin
+		  w_regf[55] = final_add_res;
+	    end
+
+	    6'd56: begin
+		  w_regf[56] = final_add_res;
+	    end
+
+	    6'd57: begin
+		  w_regf[57] = final_add_res;
+	    end
+
+	    6'd58: begin
+		  w_regf[58] = final_add_res;
+	    end
+
+	    6'd59: begin
+		  w_regf[59] = final_add_res;
+	    end
+
+	    6'd60: begin
+		  w_regf[60] = final_add_res;
+	    end
+
+	    6'd61: begin
+		  w_regf[61] = final_add_res;
+	    end
+
+	    6'd62: begin
+		  w_regf[62] = final_add_res;
+	    end
+
+	    6'd63: begin
+		  w_regf[63] = final_add_res;
+	    end
+
