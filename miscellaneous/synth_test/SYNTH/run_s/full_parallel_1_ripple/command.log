@@ -1,7 +1,7 @@
 #@ # 
 #@ # Running dc_shell Version H-2013.03-SP2 for linux -- Jun 03, 2013
-#@ # Date:   Sat Nov 17 15:32:47 2018
-#@ # Run by: sheble@grendel14.ece.ncsu.edu
+#@ # Date:   Sat Nov 17 17:12:24 2018
+#@ # Run by: sheble@grendel20.ece.ncsu.edu
 #@ 
 
 source /afs/eos.ncsu.edu/dist/synopsys2013/syn/admin/setup/.synopsys_dc.setup
@@ -4799,8 +4799,8 @@ source /afs/eos.ncsu.edu/dist/synopsys2013/syn/admin/setup/.synopsys_dc.setup
 #@ 
 #@ # -- End source /afs/eos.ncsu.edu/dist/synopsys2013/syn/admin/setup/.synopsys_dc.setup
 
-source /afs/unity.ncsu.edu/users/s/sheble/Projects/ece564/synth_test/SYNTH/run_s/.synopsys_dc.setup
-#@ # -- Starting source /afs/unity.ncsu.edu/users/s/sheble/Projects/ece564/synth_test/SYNTH/run_s/.synopsys_dc.setup
+source /afs/unity.ncsu.edu/users/s/sheble/Projects/ece564/ece564_design/final_project/miscellaneous/synth_test/SYNTH/run_s/.synopsys_dc.setup
+#@ # -- Starting source /afs/unity.ncsu.edu/users/s/sheble/Projects/ece564/ece564_design/final_project/miscellaneous/synth_test/SYNTH/run_s/.synopsys_dc.setup
 
 #@ # rename as .synopsys_dc.setup 
 #@ 
@@ -4817,7 +4817,7 @@ source /afs/unity.ncsu.edu/users/s/sheble/Projects/ece564/synth_test/SYNTH/run_s
 #@ set link_library   [concat  $target_library $synthetic_library]
 #@ 
 #@ set verilogout_no_tri "true"
-#@ # -- End source /afs/unity.ncsu.edu/users/s/sheble/Projects/ece564/synth_test/SYNTH/run_s/.synopsys_dc.setup
+#@ # -- End source /afs/unity.ncsu.edu/users/s/sheble/Projects/ece564/ece564_design/final_project/miscellaneous/synth_test/SYNTH/run_s/.synopsys_dc.setup
 
 source setup.tcl
 #@ # -- Starting source setup.tcl
@@ -5176,5 +5176,4 @@ source CompileAnalyze.tcl
 #@ write_sdf counter_max.sdf
 #@ # -- End source CompileAnalyze.tcl
 
-report_area
 exit

@@ -6,7 +6,7 @@ Report : timing
         -max_paths 1
 Design : fp_1
 Version: H-2013.03-SP2
-Date   : Sat Nov 17 15:33:28 2018
+Date   : Sat Nov 17 17:14:53 2018
 ****************************************
 
 Operating Conditions: slow   Library: NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_nldm

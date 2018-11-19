@@ -41,7 +41,7 @@ begin
 	end
 	else
 	begin
-		`ifdef ADD_ADV
+		`ifdef ADV_ADD
 			ops_out <= adr_final_op_temp;
 			adr_1_op <= adr_1_op_temp;
 			adr_2_op <= adr_2_op_temp;
