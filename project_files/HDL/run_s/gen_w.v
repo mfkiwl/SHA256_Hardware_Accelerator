@@ -67,8 +67,6 @@ reg we_w_reg_sig;				/** Signal Carrying the WE Signal for W Register File */
 
 reg w_reg_rdy;					/** Signal Carrying W Register File Ready */
 
-reg addr_adder_ovf;				/** Signal Carrying Address Adder Overflow */
-
 /** State Machine Parameter Declaration */
 parameter [2:0]
 	S0 = 3'b000,	/** Idle State */
@@ -182,7 +180,6 @@ begin
 	shiftrx1_sig = 32'b0;
 	int0_hold_sig = 32'b0;
 	int1_hold_sig = 32'b0;
-	addr_adder_ovf = 1'b0;
 	
 	case(current_state)
 		S0: begin
@@ -202,7 +199,7 @@ begin
 		end
 		
 		S2: begin
-			{addr_adder_ovf,next_addr} = curr_addr + 1;
+			next_addr = curr_addr + 1;
 			we_w_reg_sig = 1'b1;
 			w_reg_rdy = 1'b1;
 			
@@ -215,7 +212,7 @@ begin
 		end
 		
 		S3: begin
-			{addr_adder_ovf,next_addr} = curr_addr + 1;
+			next_addr = curr_addr + 1;
 			we_w_reg_sig = 1'b1;
 			w_reg_rdy = 1'b1;
 			
@@ -228,7 +225,7 @@ begin
 		end
 		
 		S4: begin
-			{addr_adder_ovf,next_addr} = curr_addr + 1;
+			next_addr = curr_addr + 1;
 			we_w_reg_sig = 1'b1;
 			w_reg_rdy = 1'b1;
 			
@@ -237,7 +234,7 @@ begin
 			int0_hold_sig = w_regf[curr_addr-16];
 			int1_hold_sig = w_regf[curr_addr-7];
 			
-			if(addr_adder_ovf==1'b1)
+			if(curr_addr==6'd63)
 			begin
 				next_state = S5;
 			end
