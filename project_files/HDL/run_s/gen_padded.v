@@ -22,7 +22,7 @@ module gen_padded	(	/** Inputs */
 /** Internal Variable Declarations */
 /** Storage Elements */
 reg [3:0] current_state;		/** Current State of the State Machine */
-reg [5:0] curr_addr;			/** Next State of the State MAchine */
+reg [5:0] curr_addr;			/** Current Read Address */
 reg [5:0] comp_addr;			/** Message Length Address */
 reg we_pad_reg;					/** Write Enable for the Pad Register */
 reg we_pad_reg_hold;			/** Write Enable Hold for the Pad Register */
@@ -76,7 +76,7 @@ begin
 	end
 end
 
-/** Address Counter Procedural Block */
+/** Address Counter and Singals Procedural Block */
 always@(posedge clock)
 begin
 	/** Always Register Inputs */
