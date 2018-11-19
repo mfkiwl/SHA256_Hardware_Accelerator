@@ -46,12 +46,12 @@ reg pad_rdy_sig;				/** Pad Register Ready Signal */
 
 /** State Machine Parameter Declaration */
 parameter [5:0]
-	S0 = 3'b000001,	/** Idle State */
-	S1 = 3'b000010,	/** Load Message Length, Clear Address Counter State, Assert SRAM Enable Signal State and Enable Pad Register Write Enable State */
-	S2 = 3'b000100,	/** Start Incrementing Request Address, Check for Next Address State, Assert SRAM Enable Signal and Enable Pad Register Write Enable */
-	S3 = 3'b001000,	/** Deassert SRAM Enable Signal and Deassert Pad Register Write Enable */
-	S4 = 3'b010000,	/** Next Data is 0x80 */
-	S5 = 3'b100000;	/** Wait for Next Go */
+	S0 = 6'b000001,	/** Idle State */
+	S1 = 6'b000010,	/** Load Message Length, Clear Address Counter State, Assert SRAM Enable Signal State and Enable Pad Register Write Enable State */
+	S2 = 6'b000100,	/** Start Incrementing Request Address, Check for Next Address State, Assert SRAM Enable Signal and Enable Pad Register Write Enable */
+	S3 = 6'b001000,	/** Deassert SRAM Enable Signal and Deassert Pad Register Write Enable */
+	S4 = 6'b010000,	/** Next Data is 0x80 */
+	S5 = 6'b100000;	/** Wait for Next Go */
 
 /** State Machine Procedural Block */
 always@(posedge clock)

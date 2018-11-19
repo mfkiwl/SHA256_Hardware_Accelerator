@@ -1,8 +1,8 @@
 /**
- * \file gen_padded.v
- * \date 11/4/2018
+ * \file gen_w_test.v
+ * \date 11/19/2018
  * \author Soumil Krishnanand Heble
- * \brief SHA256 Padded Message Generator Test Bench
+ * \brief SHA256 W Message Generator Test Bench
  */
 
 module test_genw();
@@ -10,6 +10,7 @@ module test_genw();
 parameter CLK_PHASE=5;
 parameter MAX_MESSAGE_LENGTH=55;
 parameter SYMBOL_WIDTH=8;
+parameter MSG_LEN = 6'd55;
 
 reg clock;
 reg dut_reset;
@@ -34,7 +35,7 @@ begin
 	clock=1'b0;
 	dut_reset=1'b1;
 	dut_go = 1'b0;
-	dut_msg_length = 6'd7;
+	dut_msg_length = MSG_LEN;
 
 	#5 dut_reset=1'b1;
 	
@@ -44,7 +45,7 @@ begin
 
 	#10 dut_go = 1'b0;
 
-	#1000 $finish;
+	#2000 $finish;
 end
 
 /** Go Wait Go Finish */
@@ -57,7 +58,7 @@ begin
 	clock=1'b0;
 	dut_reset=1'b1;
 	dut_go = 1'b0;
-	dut_msg_length = 6'd7;
+	dut_msg_length = MSG_LEN;
 
 	#5 dut_reset=1'b1;
 	
@@ -85,7 +86,7 @@ begin
 	clock=1'b0;
 	dut_reset=1'b1;
 	dut_go = 1'b0;
-	dut_msg_length = 6'd7;
+	dut_msg_length = MSG_LEN;
 
 	#5 dut_reset=1'b1;
 	
@@ -113,7 +114,7 @@ begin
 	clock=1'b0;
 	dut_reset=1'b1;
 	dut_go = 1'b0;
-	dut_msg_length = 6'd7;
+	dut_msg_length = MSG_LEN;
 
 	#5 dut_reset=1'b1;
 	
@@ -129,7 +130,7 @@ always #CLK_PHASE clock = ~clock;
 
 sram #( .ADDR_WIDTH    ($clog2(MAX_MESSAGE_LENGTH)),
 	.DATA_WIDTH    ( SYMBOL_WIDTH ),
-	.MEM_INIT_FILE ( "../../HDL/run_s/message.dat" ))
+	.MEM_INIT_FILE ( "../../HDL/run_s/message55.dat" ))
 	msg_mem	(
 				.address      ( dut_mem_sram_addr ),
 				.write_data   ( {SYMBOL_WIDTH {1'b0}} ),

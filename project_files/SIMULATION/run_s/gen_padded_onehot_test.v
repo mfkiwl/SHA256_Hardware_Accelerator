@@ -1,11 +1,11 @@
 /**
- * \file gen_padded_test.v
+ * \file gen_padded_onehot_test.v
  * \date 11/19/2018
  * \author Soumil Krishnanand Heble
  * \brief SHA256 Padded Message Generator Test Bench
  */
 
-module test_genpadded();
+module test_genpaddedonehot();
 
 parameter CLK_PHASE=5;
 parameter MAX_MESSAGE_LENGTH=55;
@@ -24,7 +24,6 @@ wire [511:0] dut_pad_reg;
 wire dut_finish_sig;
 
 /** Go Finish */
-/*
 initial
 begin
 	$dumpfile("wave_genpadmsg.vcd");
@@ -45,7 +44,6 @@ begin
 
 	#1500 $finish;
 end
-*/
 
 /** Go Wait Go Finish */
 /*
@@ -76,6 +74,7 @@ end
 */
 
 /** Go Finish Go Finish */
+/*
 initial
 begin
 	$dumpfile("wave_genpadmsg.vcd");
@@ -100,6 +99,7 @@ begin
 	
 	#650 $finish;
 end
+*/
 
 /** Go Go Go Go Go */
 /*
@@ -119,7 +119,7 @@ begin
 	
 	#10 dut_go = 1'b1;
 
-	#650 $finish;
+	#1500 $finish;
 end
 */
 
@@ -137,17 +137,17 @@ sram #( .ADDR_WIDTH    ($clog2(MAX_MESSAGE_LENGTH)),
 				.clock        ( clock )
 			);
 			
-gen_padded gen_padded	(	/** Inputs */
-							.clock (clock),
-							.reset (dut_reset),
-							.main_go_sig (dut_go),						/** Go Signal to Compute SHA256 */
-							.msg_len (dut_msg_length),					/** Message Length in Number of Characters */
-							.msg_mem_data (dut_mem_sram_data),			/** Data from Message SRAM */
-						
-							/** Ouptuts */
-							.regop_msg_mem_en (dut_mem_sram_en),		/** Enable Signal for Message SRAM - Registered Output */
-							.regop_msg_mem_addr (dut_mem_sram_addr),	/** Address Signal for Message SRAM - Registered Output */
-							.regop_pad_reg (dut_pad_reg),				/** 512B Wide Register with the Padded Message - Registered Output */
-							.regop_pad_rdy (dut_finish_sig) 			/** Padded Message Ready Signal - Registered Output */
-						);
+gen_padded_onehot gen_padded_onehot	(	/** Inputs */
+										.clock (clock),
+										.reset (dut_reset),
+										.main_go_sig (dut_go),						/** Go Signal to Compute SHA256 */
+										.msg_len (dut_msg_length),					/** Message Length in Number of Characters */
+										.msg_mem_data (dut_mem_sram_data),			/** Data from Message SRAM */
+									
+										/** Ouptuts */
+										.regop_msg_mem_en (dut_mem_sram_en),		/** Enable Signal for Message SRAM - Registered Output */
+										.regop_msg_mem_addr (dut_mem_sram_addr),	/** Address Signal for Message SRAM - Registered Output */
+										.regop_pad_reg (dut_pad_reg),				/** 512B Wide Register with the Padded Message - Registered Output */
+										.regop_pad_rdy (dut_finish_sig) 			/** Padded Message Ready Signal - Registered Output */
+									);
 endmodule
