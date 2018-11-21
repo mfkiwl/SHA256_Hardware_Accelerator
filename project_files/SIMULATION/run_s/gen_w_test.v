@@ -10,12 +10,14 @@ module test_genw();
 parameter CLK_PHASE=5;
 parameter MAX_MESSAGE_LENGTH=55;
 parameter SYMBOL_WIDTH=8;
-parameter MSG_LEN = 6'd55;
+parameter MSG_LEN = 6'd7;
 
 reg clock;
 reg dut_reset;
 reg dut_go;
 reg [$clog2(MAX_MESSAGE_LENGTH)-1:0] dut_msg_length;
+reg w_read;
+reg [5:0] w_read_addr;
 wire [SYMBOL_WIDTH-1:0] dut_mem_sram_data;
 
 wire dut_mem_sram_en;
@@ -26,7 +28,10 @@ wire dut_finish_sig;
 wire [31:0] w_out_data;
 wire w_finished;
 
+integer i;
+
 /** Go Finish */
+/*
 initial
 begin
 	$dumpfile("wave_genw.vcd");
@@ -36,6 +41,8 @@ begin
 	dut_reset=1'b1;
 	dut_go = 1'b0;
 	dut_msg_length = MSG_LEN;
+	w_read = 1'b0;
+	w_read_addr = 6'b0;
 
 	#5 dut_reset=1'b1;
 	
@@ -46,6 +53,38 @@ begin
 	#10 dut_go = 1'b0;
 
 	#2000 $finish;
+end
+*/
+
+/** Go Finish Retrieve */
+initial
+begin
+	$dumpfile("wave_genw.vcd");
+	$dumpvars;
+
+	clock=1'b0;
+	dut_reset=1'b1;
+	dut_go = 1'b0;
+	dut_msg_length = MSG_LEN;
+	w_read = 1'b0;
+	w_read_addr = 6'b0;
+
+	#5 dut_reset=1'b1;
+	
+	#10 dut_reset = 1'b0;
+	
+	#10 dut_go = 1'b1;
+
+	#10 dut_go = 1'b0;
+
+	#700 w_read = 1'b1;
+	
+	for (i=0;i<64;i=i+1)
+	begin
+		#10 w_read_addr = i;
+	end
+	
+	#20 $finish;
 end
 
 /** Go Wait Go Finish */
@@ -59,6 +98,8 @@ begin
 	dut_reset=1'b1;
 	dut_go = 1'b0;
 	dut_msg_length = MSG_LEN;
+	w_read = 1'b0;
+	w_read_addr = 6'b0;
 
 	#5 dut_reset=1'b1;
 	
@@ -87,6 +128,8 @@ begin
 	dut_reset=1'b1;
 	dut_go = 1'b0;
 	dut_msg_length = MSG_LEN;
+	w_read = 1'b0;
+	w_read_addr = 6'b0;
 
 	#5 dut_reset=1'b1;
 	
@@ -115,6 +158,8 @@ begin
 	dut_reset=1'b1;
 	dut_go = 1'b0;
 	dut_msg_length = MSG_LEN;
+	w_read = 1'b0;
+	w_read_addr = 6'b0;
 
 	#5 dut_reset=1'b1;
 	
@@ -130,7 +175,7 @@ always #CLK_PHASE clock = ~clock;
 
 sram #( .ADDR_WIDTH    ($clog2(MAX_MESSAGE_LENGTH)),
 	.DATA_WIDTH    ( SYMBOL_WIDTH ),
-	.MEM_INIT_FILE ( "../../HDL/run_s/message55.dat" ))
+	.MEM_INIT_FILE ( "../../HDL/run_s/message.dat" ))
 	msg_mem	(
 				.address      ( dut_mem_sram_addr ),
 				.write_data   ( {SYMBOL_WIDTH {1'b0}} ),
@@ -159,8 +204,8 @@ gen_w 	gen_w			(	/** Inputs */
 							.reset (dut_reset),
 							.local_go_sig (dut_finish_sig),
 							.pad_reg (dut_pad_reg),
-							.w_reg_read (1'b0),
-							.w_reg_addr (6'b0),
+							.w_reg_read (w_read),
+							.w_reg_addr (w_read_addr),
 				
 							/** Outputs */
 							.regop_w_reg_rdy (w_finished),
