@@ -22,7 +22,7 @@
 /** Storage Elements */
 reg [31:0] w_regf [0:15];		/** W Register File */
 reg [1:0] current_state;		/** State Machine Current State */
-reg [6:0] current_serving;		/** Current W being Served */
+reg [5:0] current_serving;		/** Current W being Served */
 
 /** Pipelined W Calculations */
 reg [31:0] add0_op_hold;		/** Sigma 0 Add Pipeline Register */
@@ -39,7 +39,7 @@ reg [5:0] regip_w_reg_addr;				/** Registered W Register File Address */
 reg read_addr_match_sig;
 reg w_reg_rdy_sig;
 reg [1:0] next_state;
-reg [6:0] update_current_serving_sig;	/** Update Current Serving Register */
+reg [5:0] update_current_serving_sig;	/** Update Current Serving Register */
 reg [31:0] w_min_16;					/** W[current_calculation-16] */
 reg [31:0] w_min_15;					/** W[current_calculation-15] */
 reg [31:0] w_min_7;						/** W[current_calculation-7] */
@@ -51,8 +51,11 @@ wire [31:0] add1_out_wire;
 wire [31:0] final_add_op_wire;
 reg [31:0] srotx0_sig;
 reg [31:0] srotx1_sig;
+wire [5:0] addr_inc_wire;
+wire addr_inc_cout_wire;
 
-parameter width = 32;
+parameter width32 = 32;
+parameter width6 = 6;
 
 /** State Machine States */
 parameter [1:0]
@@ -86,7 +89,7 @@ begin
 
 	if(regip_reset)
 	begin
-		current_serving <= 7'b0;
+		current_serving <= 6'b0;
 		regop_w_reg_rdy <= 1'b0;
 		regop_w_reg_data <= 32'b0;
 	end
@@ -162,7 +165,7 @@ begin
 	srotx1_sig = {w_min_2[16:0],w_min_2[31:17]}^{w_min_2[18:0],w_min_2[31:19]}^{{10{1'b0}},w_min_2[31:10]};
 	
 	//if(|current_serving[6:1])
-	if(current_serving[5:0]>6'b1)
+	if(current_serving>6'b1)
 	begin
 		w_min_2 = final_adder_out;
 		w_ip_reg13 = final_adder_out;
@@ -195,14 +198,14 @@ begin
 				
 				if(regip_w_reg_read)
 				begin
-					update_current_serving_sig = current_serving + 1;
+					update_current_serving_sig = addr_inc_wire;
 				end
 				else
 				begin
 					update_current_serving_sig = current_serving;
 				end
 				
-				if(current_serving[6])
+				if(addr_inc_cout_wire)
 				begin
 					next_state = S3;
 				end
@@ -225,8 +228,9 @@ begin
 	endcase
 end
 
-DW01_add #(width) U4 (.A(srotx0_sig), .B(w_min_16), .CI(1'b0), .SUM(add0_out_wire));
-DW01_add #(width) U5 (.A(srotx1_sig), .B(w_min_7), .CI(1'b0), .SUM(add1_out_wire));
-DW01_add #(width) U6 (.A(add0_op_hold), .B(add1_op_hold), .CI(1'b0), .SUM(final_add_op_wire));
+DW01_add #(width32) U4 (.A(srotx0_sig), .B(w_min_16), .CI(1'b0), .SUM(add0_out_wire));
+DW01_add #(width32) U5 (.A(srotx1_sig), .B(w_min_7), .CI(1'b0), .SUM(add1_out_wire));
+DW01_add #(width32) U6 (.A(add0_op_hold), .B(add1_op_hold), .CI(1'b0), .SUM(final_add_op_wire));
+DW01_add #(width6) U7 (.A(current_serving), .B(6'b1), .CI(1'b0), .SUM(addr_inc_wire), .CO(addr_inc_cout_wire));
 
 endmodule
