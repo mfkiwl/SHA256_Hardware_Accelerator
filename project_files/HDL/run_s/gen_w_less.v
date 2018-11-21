@@ -46,6 +46,13 @@ reg [31:0] w_min_7;						/** W[current_calculation-7] */
 reg [31:0] w_min_2;						/** W[current_calculation-2] */
 reg [31:0] w_ip_reg13;					/** Input To Register 13 */
 
+wire [31:0] add0_out_wire;
+wire [31:0] add1_out_wire;
+wire [31:0] final_add_op_wire;
+reg [31:0] srotx0_sig;
+reg [31:0] srotx1_sig;
+
+parameter width = 32;
 
 /** State Machine States */
 parameter [1:0]
@@ -132,9 +139,9 @@ begin
 			w_regf[14] <= w_regf[15];
 			
 			/** W Operation Pipelined */
-			add0_op_hold <= ({w_min_15[6:0],w_min_15[31:7]}^{w_min_15[17:0],w_min_15[31:18]}^{{3{1'b0}},w_min_15[31:3]}) + w_min_16;
-			add1_op_hold <= ({w_min_2[16:0],w_min_2[31:17]}^{w_min_2[18:0],w_min_2[31:19]}^{{10{1'b0}},w_min_2[31:10]}) + w_min_7;
-			final_adder_out <= add0_op_hold + add1_op_hold;
+			add0_op_hold <= add0_out_wire;
+			add1_op_hold <= add1_out_wire;
+			final_adder_out <= final_add_op_wire;
 		end
 	end
 end
@@ -150,7 +157,11 @@ begin
 	w_min_16 = w_regf[0];
 	w_min_15 = w_regf[1];
 	w_min_7 = w_regf[9];
+
+	srotx0_sig = {w_min_15[6:0],w_min_15[31:7]}^{w_min_15[17:0],w_min_15[31:18]}^{{3{1'b0}},w_min_15[31:3]};
+	srotx1_sig = {w_min_2[16:0],w_min_2[31:17]}^{w_min_2[18:0],w_min_2[31:19]}^{{10{1'b0}},w_min_2[31:10]};
 	
+	//if(|current_serving[6:1])
 	if(current_serving[5:0]>6'b1)
 	begin
 		w_min_2 = final_adder_out;
@@ -213,5 +224,9 @@ begin
 		end
 	endcase
 end
+
+DW01_add #(width) U4 (.A(srotx0_sig), .B(w_min_16), .CI(1'b0), .SUM(add0_out_wire));
+DW01_add #(width) U5 (.A(srotx1_sig), .B(w_min_7), .CI(1'b0), .SUM(add1_out_wire));
+DW01_add #(width) U6 (.A(add0_op_hold), .B(add1_op_hold), .CI(1'b0), .SUM(final_add_op_wire));
 
 endmodule
