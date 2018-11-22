@@ -5,6 +5,8 @@
  * \brief Generate W array for the SHA256 Algorithm
  */
  
+//`include "./DW01_add.v"
+ 
  module gen_w_less (	/** Inputs */
 						input clock,
 						input reset,
@@ -27,7 +29,6 @@ reg [5:0] current_serving;		/** Current W being Served */
 /** Pipelined W Calculations */
 reg [31:0] add0_op_hold;		/** Sigma 0 Add Pipeline Register */
 reg [31:0] add1_op_hold;		/** Sigma 0 Add Pipeline Register */
-reg [31:0] final_adder_out;		/** Final Adder Output Pipeline Register */
 
 /** Registered Inputs */
 reg regip_reset;						/** Registered Reset */ 
@@ -36,10 +37,9 @@ reg regip_w_reg_read;					/** Registered W Register File Read Enable */
 reg [5:0] regip_w_reg_addr;				/** Registered W Register File Address */
 
 /** "Regs" */
-reg read_addr_match_sig;
+//reg read_addr_match_sig;
 reg w_reg_rdy_sig;
 reg [1:0] next_state;
-reg [5:0] update_current_serving_sig;	/** Update Current Serving Register */
 reg [31:0] w_min_16;					/** W[current_calculation-16] */
 reg [31:0] w_min_15;					/** W[current_calculation-15] */
 reg [31:0] w_min_7;						/** W[current_calculation-7] */
@@ -49,8 +49,6 @@ reg [31:0] w_ip_reg13;					/** Input To Register 13 */
 wire [31:0] add0_out_wire;
 wire [31:0] add1_out_wire;
 wire [31:0] final_add_op_wire;
-reg [31:0] srotx0_sig;
-reg [31:0] srotx1_sig;
 wire [5:0] addr_inc_wire;
 wire addr_inc_cout_wire;
 
@@ -64,20 +62,7 @@ parameter [1:0]
 	S2 = 2'b10,		/** Run State */
 	S3 = 2'b11;		/** Wait For Go State */
 
-/** State Machine Procedural Block */
-always@(posedge clock)
-begin
-	if(regip_reset)
-	begin
-		current_state <= 2'b0;
-	end
-	else
-	begin
-		current_state <= next_state;
-	end
-end
-	
-/** Storage Operations */
+/** FSM and Storage Operation Procedural Block */
 always@(posedge clock)
 begin
 
@@ -89,13 +74,14 @@ begin
 
 	if(regip_reset)
 	begin
+		current_state <= 2'b0;
 		current_serving <= 6'b0;
 		regop_w_reg_rdy <= 1'b0;
 		regop_w_reg_data <= 32'b0;
 	end
 	else
 	begin
-		current_serving <= update_current_serving_sig;
+		current_state <= next_state;
 		regop_w_reg_rdy <= w_reg_rdy_sig;
 	
 		if(current_state==S1)
@@ -118,8 +104,10 @@ begin
 			w_regf[15] <= pad_reg[31:0];
 		end
 		else
-		if(read_addr_match_sig & regip_w_reg_read)
+		//if(regip_w_reg_read)
+		if((current_serving==regip_w_reg_addr) & regip_w_reg_read)
 		begin
+			current_serving <= addr_inc_wire;
 			
 			/** Push Out The Top W To Output */
 			regop_w_reg_data <= w_regf[0];
@@ -138,13 +126,19 @@ begin
 			w_regf[10] <= w_regf[11];
 			w_regf[11] <= w_regf[12];
 			w_regf[12] <= w_regf[13];
-			w_regf[13] <= w_ip_reg13;
-			w_regf[14] <= w_regf[15];
+			w_regf[13] <= w_regf[14];
+			if(|current_serving)
+			begin
+				w_regf[14] <= final_add_op_wire;
+			end
+			else
+			begin
+				w_regf[14] <= w_regf[15];
+			end
 			
 			/** W Operation Pipelined */
 			add0_op_hold <= add0_out_wire;
 			add1_op_hold <= add1_out_wire;
-			final_adder_out <= final_add_op_wire;
 		end
 	end
 end
@@ -153,28 +147,7 @@ end
 always@(*)
 begin
 	/** Defaults To Avoid Latches */
-	read_addr_match_sig = 1'b0;
 	w_reg_rdy_sig = 1'b0;
-	update_current_serving_sig = 7'b0;
-	
-	w_min_16 = w_regf[0];
-	w_min_15 = w_regf[1];
-	w_min_7 = w_regf[9];
-
-	srotx0_sig = {w_min_15[6:0],w_min_15[31:7]}^{w_min_15[17:0],w_min_15[31:18]}^{{3{1'b0}},w_min_15[31:3]};
-	srotx1_sig = {w_min_2[16:0],w_min_2[31:17]}^{w_min_2[18:0],w_min_2[31:19]}^{{10{1'b0}},w_min_2[31:10]};
-	
-	//if(|current_serving[6:1])
-	if(current_serving>6'b1)
-	begin
-		w_min_2 = final_adder_out;
-		w_ip_reg13 = final_adder_out;
-	end
-	else
-	begin
-		w_min_2 = w_regf[14];
-		w_ip_reg13 = w_regf[14];
-	end
 
 	case(current_state)
 		S0:	begin
@@ -193,17 +166,7 @@ begin
 		end
 		
 		S2:	begin
-				read_addr_match_sig = (current_serving[5:0]==regip_w_reg_addr) ? 1'b1 : 1'b0;
 				w_reg_rdy_sig = 1'b1;
-				
-				if(regip_w_reg_read)
-				begin
-					update_current_serving_sig = addr_inc_wire;
-				end
-				else
-				begin
-					update_current_serving_sig = current_serving;
-				end
 				
 				if(addr_inc_cout_wire)
 				begin
@@ -228,8 +191,8 @@ begin
 	endcase
 end
 
-DW01_add #(width32) U4 (.A(srotx0_sig), .B(w_min_16), .CI(1'b0), .SUM(add0_out_wire));
-DW01_add #(width32) U5 (.A(srotx1_sig), .B(w_min_7), .CI(1'b0), .SUM(add1_out_wire));
+DW01_add #(width32) U4 (.A({w_regf[1][6:0],w_regf[1][31:7]}^{w_regf[1][17:0],w_regf[1][31:18]}^{{3{1'b0}},w_regf[1][31:3]}), .B(w_regf[0]), .CI(1'b0), .SUM(add0_out_wire));
+DW01_add #(width32) U5 (.A({w_regf[14][16:0],w_regf[14][31:17]}^{w_regf[14][18:0],w_regf[14][31:19]}^{{10{1'b0}},w_regf[14][31:10]}), .B(w_regf[9]), .CI(1'b0), .SUM(add1_out_wire));
 DW01_add #(width32) U6 (.A(add0_op_hold), .B(add1_op_hold), .CI(1'b0), .SUM(final_add_op_wire));
 DW01_add #(width6) U7 (.A(current_serving), .B(6'b1), .CI(1'b0), .SUM(addr_inc_wire), .CO(addr_inc_cout_wire));
 
