@@ -5,23 +5,44 @@
  * \brief Generate Message with Padding Compliant with the SHA256 Algorithm
  */
 
+//`define ADV_ADD		1	//Uncomment to use Designware Parallel Prefix Adders (use set_implementation pparch <module_name> after read.tcl in synthesis)
+//`define ADV_ADD_WINDOWS	1	//In Addition to Uncommenting ADV_ADD Uncomment if Simulating on Windows Modelsim
+//`define ONEHOT_ENC		1	//Uncomment to switch to One Hot Encoding State Machine
+
+`ifdef ADV_ADD_WINDOWS
+	//synopsys translate_off
+	`include "./DW01_add.v"
+	//synopsys translate_on
+`elsif ADV_ADD
+	//synopsys translate_off
+	`include "/afs/eos.ncsu.edu/dist/synopsys2013/syn/dw/sim_ver/DW01_add.v"
+	//synopsys translate_on
+`endif
+
 module gen_padded	(	/** Inputs */
-						input clock,
-						input reset,
-						input main_go_sig,						/** Go Signal to Compute SHA256 */
-						input [5:0] msg_len,					/** Message Length in Number of Characters */
-						input [7:0] msg_mem_data,				/** Data from Message SRAM */
-					
-						/** Ouptuts */
-						output reg regop_msg_mem_en,			/** Enable Signal for Message SRAM - Registered Output */
-						output reg [5:0] regop_msg_mem_addr,	/** Address Signal for Message SRAM - Registered Output */
-						output reg [511:0] regop_pad_reg,		/** 512B Wide Register with the Padded Message - Registered Output */
-						output reg regop_pad_rdy 				/** Padded Message Ready Signal - Registered Output */
-					);
+				input clock,
+				input reset,
+				input main_go_sig,						/** Go Signal to Compute SHA256 */
+				input [5:0] msg_len,					/** Message Length in Number of Characters */
+				input [7:0] msg_mem_data,				/** Data from Message SRAM */
+				input finish_sig,						/** H Module is Done Writing Hash to Output SRAM */
+						
+				/** Ouptuts */
+				output reg regop_msg_mem_en,			/** Enable Signal for Message SRAM - Registered Output */
+				output reg [5:0] regop_msg_mem_addr,	/** Address Signal for Message SRAM - Registered Output */
+				output reg [511:0] regop_pad_reg,		/** 512B Wide Register with the Padded Message - Registered Output */
+				output reg regop_pad_rdy 				/** Padded Message Ready Signal - Registered Output */
+			);
 
 /** Internal Variable Declarations */
 /** Storage Elements */
-reg [2:0] current_state;		/** Current State of the State Machine */
+
+`ifdef ONEHOT_ENC
+	reg [5:0] current_state;		/** Current State of the State Machine */
+`else
+	reg [2:0] current_state;		/** Current State of the State Machine */
+`endif
+
 reg [5:0] curr_addr;			/** Current Read Address */
 reg [5:0] comp_addr;			/** Message Length Address */
 reg we_pad_reg;					/** Write Enable for the Pad Register */
@@ -33,19 +54,40 @@ reg [5:0] pad_reg_addr_hold_0;	/** Pad Register Address Hold */
 reg regin_main_go_sig;			/** Go Signal IP Register */
 reg [5:0] regin_msg_len;		/** Message Length IP Register */
 reg [7:0] regin_msg_mem_data;	/** Message Data IP Register */
+reg regin_finish_sig;			/** Finish Signal IP Register */
 reg regin_reset;				/** Registered Reset */
 
 /** "Regs" */
-reg [2:0] next_state;			/** Next State Signal */
+
+`ifdef ONEHOT_ENC
+	reg [5:0] next_state;			/** Next State Signal */
+`else
+	reg [2:0] next_state;			/** Next State Signal */
+`endif
+
 reg [7:0] next_data;			/** Signal Carrying the Next Data in the Pad Register */
 reg [5:0] next_addr;			/** Signal Carrying the Next Addredd to the Pad Register */
 reg we_pad_reg_sig;				/** Signal Carrying Write Enable for the Pad Register */
 reg msg_mem_en;					/** Enable SRAM Signal */
 reg pad_rdy_sig;				/** Pad Register Ready Signal */
 
+`ifdef ADV_ADD
+	wire [5:0] next_addr_out_wire;
+	parameter width6 = 6;
+`endif
 
 /** State Machine Parameter Declaration */
-parameter [2:0]
+
+`ifdef ONEHOT_ENC
+	parameter [5:0]
+		S0 = 6'b000001,	/** Idle State */
+		S1 = 6'b000010,	/** Load Message Length, Clear Address Counter State, Assert SRAM Enable Signal State and Enable Pad Register Write Enable State */
+		S2 = 6'b000100,	/** Start Incrementing Request Address, Check for Next Address State, Assert SRAM Enable Signal and Enable Pad Register Write Enable */
+		S3 = 6'b001000,	/** Deassert SRAM Enable Signal and Deassert Pad Register Write Enable */
+		S4 = 6'b010000,	/** Next Data is 0x80 */
+		S5 = 6'b100000;	/** Wait for Next Go */
+`else
+	parameter [2:0]
 	S0 = 3'b000,	/** Idle State */
 	S1 = 3'b001,	/** Load Message Length, Clear Address Counter State, Assert SRAM Enable Signal State and Enable Pad Register Write Enable State */
 	S2 = 3'b010,	/** Start Incrementing Request Address, Check for Next Address State, Assert SRAM Enable Signal and Enable Pad Register Write Enable */
@@ -54,13 +96,18 @@ parameter [2:0]
 	S5 = 3'b101,	/** Wait for Next Go */
 	S6 = 3'b110,	/** Empty State */
 	S7 = 3'b111;	/** Empty State */
+`endif
 
 /** State Machine Procedural Block */
 always@(posedge clock)
 begin
 	if(regin_reset)
 	begin
+	`ifdef ONEHOT_ENC
+		current_state <= 6'b0;
+	`else
 		current_state <= 3'b0;
+	`endif
 	end
 	else
 	begin
@@ -75,6 +122,7 @@ begin
 	regin_main_go_sig <= main_go_sig;
 	regin_msg_len <= msg_len;
 	regin_msg_mem_data <= msg_mem_data;
+	regin_finish_sig <= finish_sig;
 	regin_reset <= reset;
 	
 	if(regin_reset)
@@ -142,7 +190,13 @@ begin
 		end
 		
 		S2: begin
+		
+		`ifdef ADV_ADD
+			next_addr = next_addr_out_wire;
+		`else
 			next_addr = curr_addr + 1;
+		`endif
+			
 			next_data = regin_msg_mem_data;
 			we_pad_reg_sig = 1'b1;
 			msg_mem_en = 1'b1;
@@ -158,7 +212,13 @@ begin
 		end
 		
 		S3: begin
+		
+		`ifdef ADV_ADD
+			next_addr = next_addr_out_wire;
+		`else
 			next_addr = curr_addr + 1;
+		`endif
+		
 			next_data = regin_msg_mem_data;
 			next_state = S4;
 		end
@@ -170,7 +230,7 @@ begin
 		
 		S5: begin
 			pad_rdy_sig = 1'b1;
-			if(regin_main_go_sig==1'b1)
+			if(regin_main_go_sig & regin_finish_sig)
 			begin
 				next_state = S1;
 			end
@@ -434,4 +494,9 @@ begin
 		end
 	end
 end
+
+`ifdef ADV_ADD
+	DW01_add #(width6) PADD1 (.A(curr_addr), .B(6'b1), .CI(1'b0), .SUM(next_addr_out_wire));
+`endif
+
 endmodule

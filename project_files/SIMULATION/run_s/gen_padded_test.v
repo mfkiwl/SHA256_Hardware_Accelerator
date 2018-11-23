@@ -10,11 +10,12 @@ module test_genpadded();
 parameter CLK_PHASE=5;
 parameter MAX_MESSAGE_LENGTH=55;
 parameter SYMBOL_WIDTH=8;
-parameter MSG_LEN=6'd55;
+parameter MSG_LEN=6'd7;
 
 reg clock;
 reg dut_reset;
 reg dut_go;
+reg dut_finish;
 reg [$clog2(MAX_MESSAGE_LENGTH)-1:0] dut_msg_length;
 wire [SYMBOL_WIDTH-1:0] dut_mem_sram_data;
 
@@ -24,7 +25,6 @@ wire [511:0] dut_pad_reg;
 wire dut_finish_sig;
 
 /** Go Finish */
-/*
 initial
 begin
 	$dumpfile("wave_genpadmsg.vcd");
@@ -34,6 +34,7 @@ begin
 	dut_reset=1'b1;
 	dut_go = 1'b0;
 	dut_msg_length = MSG_LEN;
+	dut_finish = 1'b1;
 
 	#5 dut_reset=1'b1;
 	
@@ -45,7 +46,6 @@ begin
 
 	#1500 $finish;
 end
-*/
 
 /** Go Wait Go Finish */
 /*
@@ -58,6 +58,7 @@ begin
 	dut_reset=1'b1;
 	dut_go = 1'b0;
 	dut_msg_length = MSG_LEN;
+	dut_finish = 1'b1;
 
 	#5 dut_reset=1'b1;
 	
@@ -76,6 +77,7 @@ end
 */
 
 /** Go Finish Go Finish */
+/*
 initial
 begin
 	$dumpfile("wave_genpadmsg.vcd");
@@ -85,6 +87,7 @@ begin
 	dut_reset=1'b1;
 	dut_go = 1'b0;
 	dut_msg_length = MSG_LEN;
+	dut_finish = 1'b0;
 
 	#5 dut_reset=1'b1;
 	
@@ -94,12 +97,14 @@ begin
 
 	#10 dut_go = 1'b0;
 
-	#600 dut_go = 1'b1;
+	#600 dut_finish = 1'b1;
+		 dut_go = 1'b1;
 	
 	#10 dut_go = 1'b0;
 	
 	#650 $finish;
 end
+*/
 
 /** Go Go Go Go Go */
 /*
@@ -112,6 +117,7 @@ begin
 	dut_reset=1'b1;
 	dut_go = 1'b0;
 	dut_msg_length = MSG_LEN;
+	dut_finish = 1'b1;
 
 	#5 dut_reset=1'b1;
 	
@@ -127,7 +133,7 @@ always #CLK_PHASE clock = ~clock;
 
 sram #( .ADDR_WIDTH    ($clog2(MAX_MESSAGE_LENGTH)),
 	.DATA_WIDTH    ( SYMBOL_WIDTH ),
-	.MEM_INIT_FILE ( "../../HDL/run_s/message55.dat" ))
+	.MEM_INIT_FILE ( "../../../../HDL/run_s/message.dat" ))
 	msg_mem	(
 				.address      ( dut_mem_sram_addr ),
 				.write_data   ( {SYMBOL_WIDTH {1'b0}} ),
@@ -143,6 +149,7 @@ gen_padded gen_padded	(	/** Inputs */
 							.main_go_sig (dut_go),						/** Go Signal to Compute SHA256 */
 							.msg_len (dut_msg_length),					/** Message Length in Number of Characters */
 							.msg_mem_data (dut_mem_sram_data),			/** Data from Message SRAM */
+							.finish_sig(dut_finish),					/** Computation Finished Signal */
 						
 							/** Ouptuts */
 							.regop_msg_mem_en (dut_mem_sram_en),		/** Enable Signal for Message SRAM - Registered Output */
