@@ -15,6 +15,7 @@ parameter MSG_LEN = 6'd7;
 reg clock;
 reg dut_reset;
 reg dut_go;
+reg dut_finish;
 reg [$clog2(MAX_MESSAGE_LENGTH)-1:0] dut_msg_length;
 reg w_read;
 reg [5:0] w_read_addr;
@@ -34,15 +35,14 @@ integer i;
 /*
 initial
 begin
-	$dumpfile("wave_genw.vcd");
+	$dumpfile("wave_genpadmsg.vcd");
 	$dumpvars;
 
 	clock=1'b0;
 	dut_reset=1'b1;
 	dut_go = 1'b0;
 	dut_msg_length = MSG_LEN;
-	w_read = 1'b0;
-	w_read_addr = 6'b0;
+	dut_finish = 1'b1;
 
 	#5 dut_reset=1'b1;
 	
@@ -52,7 +52,7 @@ begin
 
 	#10 dut_go = 1'b0;
 
-	#2000 $finish;
+	#1500 $finish;
 end
 */
 
@@ -68,7 +68,8 @@ begin
 	dut_msg_length = MSG_LEN;
 	w_read = 1'b0;
 	w_read_addr = 6'b0;
-
+	dut_finish = 1'b0;
+	
 	#5 dut_reset=1'b1;
 	
 	#10 dut_reset = 1'b0;
@@ -80,7 +81,14 @@ begin
 	#700 w_read = 1'b1;
 		 w_read_addr = 6'b0;
 	
-	for (i=1;i<64;i=i+1)
+	for (i=1;i<62;i=i+1)
+	begin
+		#10 w_read_addr = i;
+	end
+	
+	#50
+	
+	for (i=62;i<64;i=i+1)
 	begin
 		#10 w_read_addr = i;
 	end
@@ -99,8 +107,7 @@ begin
 	dut_reset=1'b1;
 	dut_go = 1'b0;
 	dut_msg_length = MSG_LEN;
-	w_read = 1'b0;
-	w_read_addr = 6'b0;
+	dut_finish = 1'b1;
 
 	#5 dut_reset=1'b1;
 	
@@ -114,7 +121,7 @@ begin
 	
 	#20 dut_go = 1'b0;
 
-	#1000 $finish;
+	#650 $finish;
 end
 */
 
@@ -129,8 +136,7 @@ begin
 	dut_reset=1'b1;
 	dut_go = 1'b0;
 	dut_msg_length = MSG_LEN;
-	w_read = 1'b0;
-	w_read_addr = 6'b0;
+	dut_finish = 1'b0;
 
 	#5 dut_reset=1'b1;
 	
@@ -140,11 +146,12 @@ begin
 
 	#10 dut_go = 1'b0;
 
-	#150 dut_go = 1'b1;
+	#600 dut_finish = 1'b1;
+		 dut_go = 1'b1;
 	
 	#10 dut_go = 1'b0;
 	
-	#1000 $finish;
+	#650 $finish;
 end
 */
 
@@ -159,8 +166,7 @@ begin
 	dut_reset=1'b1;
 	dut_go = 1'b0;
 	dut_msg_length = MSG_LEN;
-	w_read = 1'b0;
-	w_read_addr = 6'b0;
+	dut_finish = 1'b1;
 
 	#5 dut_reset=1'b1;
 	
@@ -168,7 +174,7 @@ begin
 	
 	#10 dut_go = 1'b1;
 
-	#1000 $finish;
+	#650 $finish;
 end
 */
 
@@ -192,6 +198,7 @@ gen_padded gen_padded	(	/** Inputs */
 							.main_go_sig (dut_go),						/** Go Signal to Compute SHA256 */
 							.msg_len (dut_msg_length),					/** Message Length in Number of Characters */
 							.msg_mem_data (dut_mem_sram_data),			/** Data from Message SRAM */
+							.finish_sig(dut_finish),					/** Computation Finished Signal */
 						
 							/** Ouptuts */
 							.regop_msg_mem_en (dut_mem_sram_en),		/** Enable Signal for Message SRAM - Registered Output */
