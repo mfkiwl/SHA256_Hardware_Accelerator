@@ -6,7 +6,6 @@
 # 		- highest operating temperature and lowest Vcc  
 # 		- expected worst case clock skew                
 #---------------------------------------------------------
-
 #---------------------------------------------------------
 # Set the current design to the top level instance name 
 # to make sure that you are working on the right design
@@ -25,7 +24,6 @@
 # Set the synthetic library variable to enable use of 
 # desigware blocks
 #---------------------------------------------------------
- 
  set synthetic_library [list dw_foundation.sldb]
  
 #---------------------------------------------------------
@@ -35,7 +33,6 @@
 # target and setting the link library to the conctenation
 # of the target and the synthetic library
 #---------------------------------------------------------
- 
  set target_library NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_nldm.db
  set link_library   [concat  $target_library $synthetic_library]
 
@@ -43,7 +40,6 @@
 # Specify a 5000ps clock period with 50% duty cycle     
 # and a skew of 50ps                                 
 #---------------------------------------------------------
- 
  #set CLK_PER  5
  set CLK_SKEW 0.05
  create_clock -name $clkname -period $CLK_PER -waveform "0 [expr $CLK_PER / 2]" $clkname
@@ -69,8 +65,8 @@
 # of 50um M3 is 13fF. Therefore, roughly 20ps wire delay is assumed.                
 # NOTE: THESE ARE INITIAL ASSUMPTIONS ONLY             
 #---------------------------------------------------------
-
- set DFF_CKQ 0.638
+#
+ set DFF_CKQ 0.200
  set IP_DELAY [expr 0.02 + $DFF_CKQ]
  set_input_delay $IP_DELAY -clock $clkname [remove_from_collection [all_inputs] $clkname]
 
@@ -80,8 +76,7 @@
 # Same wire delay as mentioned above           
 # NOTE: THESE ARE INITIAL ASSUMPTIONS ONLY             
 #---------------------------------------------------------
- 
- set DFF_SETUP 0.546
+ set DFF_SETUP 0.250
  set OP_DELAY [expr 0.02 + $DFF_SETUP]
  set_output_delay $OP_DELAY -clock $clkname [all_outputs]
 
@@ -99,7 +94,6 @@
 # 4 D-flip-flop (D-inputs) and                         
 # 0.013 units of wiring capacitance                     
 #---------------------------------------------------------
- 
  set PORT_LOAD_CELL  NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_nldm/DFFR_X1/D
  set WIRE_LOAD_EST   0.013
  set FANOUT          4
@@ -111,27 +105,18 @@
 # In most cases you want minimum area, so set the      
 # goal for maximum area to be 0                        
 #---------------------------------------------------------
- 
  set_max_area 0
-
 #---------------------------------------------------------
 # This command prevents feedthroughs from input to output and avoids assign statements                 
 #--------------------------------------------------------- 
- 
  set_fix_multiple_port_nets -all -buffer_constants [get_designs]
 
 #------------------------------------------------------
-# During the initial map (synthesis), Synopsys might   
-# have built parts (such as adders) using its          
-# DesignWare(TM) library.  In order to remap the       
-# design to our TSMC025 library AND to create scope    
-# for logic reduction, I want to 'flatten out' the     
-# DesignWare components.  i.e. Make one flat design    
 #                                                      
-# 'replace_synthetic' is the cleanest way of doing this
+# Removing hierarchy and flattening the design may improve timing
 #------------------------------------------------------
 
- replace_synthetic -ungroup
+ungroup -flatten -all
 
 #---------------------------------------------------------
 # check the design before optimization  
@@ -142,8 +127,7 @@
 # warnings and errors. An error would imply the design is 
 # not compilable. See > man check_design for more information.
 #---------------------------------------------------------
-
- check_design
+check_design
 
 #---------------------------------------------------------
 # link performs check for presence of the design components 
@@ -152,5 +136,4 @@
 # heirarchy) are present in the search path and connects all 
 # of the disparate components logically to the present design
 #---------------------------------------------------------
-
- link
+link 

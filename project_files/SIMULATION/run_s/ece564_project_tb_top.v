@@ -9,7 +9,7 @@
 //
 //
 // ECE464 and EOL students
-`define ECE464
+//`define ECE464
 // All students
 // - set based on your message memory depth
 `define MSG_LENGTH 5
@@ -60,6 +60,17 @@ module tb_top ();
   wire                                  dut__xxx__finish     ;
 
   integer runId ;
+  integer numberOfClocks ;
+  bit dutRunning, waitForFinishLow;
+  string outputType;
+
+  initial begin
+      `ifdef ECE464
+      outputType = "M_1";
+      `else
+      outputType = "Hash";
+      `endif
+    end
 
 
   wire [ $clog2(MAX_MESSAGE_LENGTH)-1:0]   dut__msg__address  ;  // address of letter
@@ -158,6 +169,8 @@ module tb_top ();
   
   initial 
     begin
+        dutRunning = 0;
+        waitForFinishLow = 1;
         repeat(10) @(posedge clk);
         reset = 0;
         xxx__dut__go = 0;
@@ -180,12 +193,39 @@ module tb_top ();
 
         $finish;
     end
+
+  always 
+    begin
+      @(posedge clk);
+      if ((xxx__dut__go == 1'b1) && ~dutRunning)
+        begin
+          $display("@%0t, go asserted", $time);
+          numberOfClocks = 0;
+          dutRunning = 1;
+        end
+      else if ((dut__xxx__finish == 1'b0) && waitForFinishLow)
+        begin
+          waitForFinishLow = 0;
+          numberOfClocks = numberOfClocks + 1;
+        end
+      else if ((dut__xxx__finish == 1'b1) && ~waitForFinishLow && dutRunning)
+        begin
+          $display("@%00t, dut finished, # of clocks = %0d", $time, numberOfClocks);
+          dutRunning = 0;
+          waitForFinishLow = 1;
+        end
+      else
+        begin
+          numberOfClocks = numberOfClocks + 1;
+        end
+    end
+
   always 
     begin
       @(posedge clk);
       if (dut__dom__enable == 1'b1)
         begin
-          $display("Hash[%0d] = %h", dut__dom__address, dut__dom__data);
+          $display("%s[%0d] = %h", outputType, dut__dom__address, dut__dom__data);
         end
     end
 

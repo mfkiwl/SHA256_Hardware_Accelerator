@@ -19,4 +19,4 @@
 # latches                                            
 #---------------------------------------------------------
 
-read_verilog $RTL_DIR/gen_padded.v
+read_sverilog $RTL_DIR/${modname}.v
