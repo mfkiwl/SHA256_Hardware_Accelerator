@@ -1,41 +1,21 @@
-//----------------------------------------------------------------------------------------------------
-// To run simulation
-//
-// vlog -sv ece564_project_tb_top.v
-// vsim -c -do "run 1us; quit" tb_top
-//
-// you can display the expected intermediate and output results by adding defines to vlog
-// vlog -sv +define+TB_DISPLAY_INTERMEDIATE+TB_DISPLAY_EXPECTED ece564_project_tb_top.v
-//
-//
-// ECE464 and EOL students
-//`define ECE464
-// All students
-// - set based on your message memory depth
-`define MSG_LENGTH 5
+/**
+ * \file ece564_project_tb_top.v
+ * \date 11/24/2018
+ * \author 
+ * \brief SHA256 Test Bench
+ */
+
+/** Set based on your message memory depth */
+`define MSG_LENGTH 27
 
 // synopsys translate_off
-/*
-`include "/afs/eos.ncsu.edu/dist/synopsys2013/syn/dw/sim_ver/DW_fp_cmp.v"
-`include "/afs/eos.ncsu.edu/dist/synopsys2013/syn/dw/sim_ver/DW_fp_cmp_DG.v"
-`include "/afs/eos.ncsu.edu/dist/synopsys2013/syn/dw/sim_ver/DW_fp_mult.v"
-`include "/afs/eos.ncsu.edu/dist/synopsys2013/syn/dw/sim_ver/DW_fp_mac.v"
-`include "/afs/eos.ncsu.edu/dist/synopsys2013/syn/dw/sim_ver/DW_fp_dp2.v"
-`include "/afs/eos.ncsu.edu/dist/synopsys2013/syn/dw/sim_ver/DW_fp_ifp_conv.v"
-`include "/afs/eos.ncsu.edu/dist/synopsys2013/syn/dw/sim_ver/DW_ifp_fp_conv.v"
-`include "/afs/eos.ncsu.edu/dist/synopsys2013/syn/dw/sim_ver/DW_ifp_mult.v"
-`include "/afs/eos.ncsu.edu/dist/synopsys2013/syn/dw/sim_ver/DW_ifp_addsub.v"
-`include "/afs/eos.ncsu.edu/dist/synopsys2013/syn/dw/sim_ver/DW02_mult_5_stage.v"
-`include "/afs/eos.ncsu.edu/dist/synopsys2013/syn/dw/sim_ver/DW01_addsub.v"
-*/
+`include "/afs/eos.ncsu.edu/dist/synopsys2013/syn/dw/sim_ver/DW01_add.v"
+// synopsys translate_on
 
-//synopsys translate_on
-//
-//---------------------------------------------------------------------------
 //---------------------------------------------------------------------------
 // Tesbench
 // - instantiate the DUT and testbench
-
+//---------------------------------------------------------------------------
 module tb_top ();
 
 
@@ -52,7 +32,7 @@ module tb_top ();
  
   //---------------------------------------------------------------------------
   // General
-  //
+  //---------------------------------------------------------------------------
   reg                                   clk                  ;
   reg                                   reset                ;
   reg                                   xxx__dut__go         ;
@@ -93,13 +73,13 @@ module tb_top ();
   wire                                     dut__dom__enable   ;
   wire                                     dut__dom__write    ;
 
-  //---------------------------------------------------------------------------
-  //---------------------------------------------------------------------------
-  //---------------------------------------------------------------------------
+//---------------------------------------------------------------------------
+// SRAM Instantiations
+//---------------------------------------------------------------------------
   
   sram  #(.ADDR_WIDTH    ($clog2(MAX_MESSAGE_LENGTH)),
           .DATA_WIDTH    (SYMBOL_WIDTH              ),
-          .MEM_INIT_FILE ("message.dat"             ))
+          .MEM_INIT_FILE ("message_27.dat"             ))
          msg_mem  (
           .address      ( dut__msg__address  ),
           .write_data   ( {SYMBOL_WIDTH {1'b0}}), 
@@ -151,16 +131,13 @@ module tb_top ();
           .clock       ( clk                )
          );
 
+//---------------------------------------------------------------------------
+// Testbench
+//---------------------------------------------------------------------------
 
-  //---------------------------------------------------------------------------
-  //---------------------------------------------------------------------------
-  //---------------------------------------------------------------------------
-  //------------------------------
-  // Testbench
-  //
-
-  //---------------------------------------------------------------------------
-  //  clk
+//---------------------------------------------------------------------------
+//  clk
+//---------------------------------------------------------------------------
   initial 
     begin
         clk                     = 1'b0;
@@ -246,18 +223,13 @@ module tb_top ();
 
     end
 
-
-  //---------------------------------------------------------------------------
-  //---------------------------------------------------------------------------
-  // Stimulus
-
-  //---------------------------------------------------------------------------
-
-
-
 //---------------------------------------------------------------------------
+// Stimulus
+//---------------------------------------------------------------------------
+
 //---------------------------------------------------------------------------
 // DUT 
+//---------------------------------------------------------------------------
   MyDesign #(.OUTPUT_LENGTH      (OUTPUT_LENGTH     ),
              .MAX_MESSAGE_LENGTH (MAX_MESSAGE_LENGTH),
              .NUMBER_OF_Ks       (NUMBER_OF_Ks      ),
@@ -293,7 +265,4 @@ module tb_top ();
           .clk                  ( clk                  )
          );
 
-
-
 endmodule
-

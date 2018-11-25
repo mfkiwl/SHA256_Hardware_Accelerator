@@ -4,6 +4,8 @@
 // Date      : Sun Nov 25 13:58:13 2018
 /////////////////////////////////////////////////////////////
 
+/** For Verifying Synthesized Netlist */
+//`include "../auxiliary_files_do_not_submit/NangateOpenCellLibrary_PDKv1_2_v2008_10_typical_conditional.v"
 
 module MyDesign_DW01_add_15 ( A, B, CI, SUM, CO );
   input [31:0] A;

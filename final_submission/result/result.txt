@@ -1,4 +1,20 @@
-Area = 
+Area = 17631.8102 um^2
+
 Number of Cycles = 
-Clock Period = 
+* Message_1 = 292 
+* Message_2 = 318
+* Message_3 = 346
+*** Average = 319.3333
+
+Clock Period = 6 ns
+
 Performance = 
+* Message_1 = 30890931.4704
+* Message_2 = 33641493.8616
+* Message_3 = 36603637.9752
+*** Average = 33782544.8168
+
+Message Content = 
+* Message_1 = a, Length = 1
+* Message_2 = abcdefghijklmnopqrstuvwxyza, Length = 27
+* Message_3 = abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabc, Length = 55
