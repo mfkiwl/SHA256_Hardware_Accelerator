@@ -9,11 +9,13 @@
 `define ADV_ADD_WINDOWS	1	//In Addition to Uncommenting ADV_ADD Uncomment if Simulating on Windows Modelsim
 //`define ONEHOT_ENC			1	//Uncomment to switch to One Hot Encoding State Machine
 
+// synopsys translate_off
 `ifdef ADV_ADD_WINDOWS
 	`include "./DW01_add.v"
 `elsif ADV_ADD
 	`include "/afs/eos.ncsu.edu/dist/synopsys2013/syn/dw/sim_ver/DW01_add.v"
 `endif
+// synopsys translate_on
 
 module gen_h	(	/** Inputs */
 					input clock,							/** Clock Signal */	
@@ -199,6 +201,7 @@ begin
 					curr_addr_hop <= hop_addr_sum_wire;
 					regop_h_mem_en <= 1'b1;
 					ah_regf_wen_hold0 <= 1'b1;
+					curr_addr_kw <= 6'b0;
 			end
 			
 			M3:	begin

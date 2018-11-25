@@ -117,6 +117,7 @@
 #------------------------------------------------------
 
 ungroup -flatten -all
+#replace_synthetic -ungroup
 
 #---------------------------------------------------------
 # check the design before optimization  

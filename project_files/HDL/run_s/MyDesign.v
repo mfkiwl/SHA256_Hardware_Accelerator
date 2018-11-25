@@ -1044,14 +1044,14 @@ end
 
 /*>>>>> gen_padded module ******/
 `ifdef ADV_ADD_PADDED
-	DW01_add #(width6) PADD1 		(.A(curr_addr), .B(6'b1), .CI(1'b0), .SUM(next_addr_out_wire));
+	DW01_add #(width6) PPADD1 		(.A(curr_addr), .B(6'b1), .CI(1'b0), .SUM(next_addr_out_wire));
 `endif
 
 /*>>>>> gen_w module ******/
-	DW01_add #(width32)	PADD2 		(.A(w_min_15), .B(w_min_16), .CI(1'b0), .SUM(add0_out_wire));
-	DW01_add #(width32)	PADD3 		(.A(w_min_2), .B(w_min_7), .CI(1'b0), .SUM(add1_out_wire));
-	DW01_add #(width32)	PADD4 		(.A(add0_op_hold), .B(add1_op_hold), .CI(1'b0), .SUM(final_add_op_wire));
-	DW01_add #(width6)	PADD5 		(.A(current_serving), .B(6'b1), .CI(1'b0), .SUM(addr_inc_wire), .CO(addr_inc_cout_wire));
+	DW01_add #(width32)	PPADD2 		(.A(w_min_15), .B(w_min_16), .CI(1'b0), .SUM(add0_out_wire));
+	DW01_add #(width32)	PPADD3 		(.A(w_min_2), .B(w_min_7), .CI(1'b0), .SUM(add1_out_wire));
+	DW01_add #(width32)	PPADD4 		(.A(add0_op_hold), .B(add1_op_hold), .CI(1'b0), .SUM(final_add_op_wire));
+	DW01_add #(width6)	PPADD5 		(.A(current_serving), .B(6'b1), .CI(1'b0), .SUM(addr_inc_wire), .CO(addr_inc_cout_wire));
 
 /*>>>>> gen_h module ******/
 	DW01_add #(width3)	PPADD6	 	(.A(curr_addr_hop), .B(3'b1), .CI(1'b0), .SUM(hop_addr_sum_wire), .CO(hop_addr_cout_wire));

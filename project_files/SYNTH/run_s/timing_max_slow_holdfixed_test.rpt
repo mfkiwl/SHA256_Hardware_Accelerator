@@ -1,0 +1,69 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : MyDesign
+Version: K-2015.06-SP1
+Date   : Sun Nov 25 02:34:42 2018
+****************************************
+
+ # A fanout number of 1000 was used for high fanout net computations.
+
+Operating Conditions: slow   Library: NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_nldm
+Wire Load Model Mode: top
+
+  Startpoint: ah_regf_addr_reg[1]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: ah_regf_reg[3][27]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                 0.0000     0.0000
+  clock network delay (ideal)                           0.0000     0.0000
+  ah_regf_addr_reg[1]/CK (DFF_X2)                       0.0000 #   0.0000 r
+  ah_regf_addr_reg[1]/Q (DFF_X2)                        0.6209     0.6209 f
+  U8404/ZN (AND2_X4)                                    0.2532     0.8742 f
+  U8267/ZN (AND2_X4)                                    0.3479     1.2221 f
+  U9189/ZN (AOI221_X2)                                  0.5801     1.8022 r
+  U9188/ZN (NAND2_X2)                                   0.1216     1.9238 f
+  PPADD8/B[15] (MyDesign_DW01_add_15)                   0.0000     1.9238 f
+  PPADD8/U283/ZN (NAND2_X1)                             0.1846     2.1084 r
+  PPADD8/U329/ZN (OAI21_X2)                             0.1415     2.2499 f
+  PPADD8/U328/ZN (AOI21_X2)                             0.3022     2.5521 r
+  PPADD8/U290/ZN (OAI21_X2)                             0.1450     2.6971 f
+  PPADD8/U288/ZN (AOI21_X2)                             0.3475     3.0446 r
+  PPADD8/U274/ZN (INV_X2)                               0.1136     3.1582 f
+  PPADD8/U276/ZN (AOI21_X1)                             0.3613     3.5195 r
+  PPADD8/U384/ZN (INV_X4)                               0.0824     3.6019 f
+  PPADD8/U295/ZN (AOI21_X2)                             0.2004     3.8023 r
+  PPADD8/U26/Z (XOR2_X2)                                0.3947     4.1970 r
+  PPADD8/SUM[27] (MyDesign_DW01_add_15)                 0.0000     4.1970 r
+  U10905/ZN (INV_X4)                                    0.0404     4.2374 f
+  U10906/Z (MUX2_X2)                                    0.4817     4.7191 f
+  U10907/ZN (INV_X4)                                    0.1467     4.8658 r
+  U9599/Z (MUX2_X2)                                     0.2075     5.0733 r
+  U9598/ZN (INV_X4)                                     0.0306     5.1039 f
+  U9961/Z (MUX2_X2)                                     0.5897     5.6936 f
+  U9962/ZN (INV_X4)                                     0.0764     5.7699 r
+  ah_regf_reg[3][27]/D (DFF_X1)                         0.0000     5.7699 r
+  data arrival time                                                5.7699
+
+  clock clk (rise edge)                                 6.0000     6.0000
+  clock network delay (ideal)                           0.0000     6.0000
+  clock uncertainty                                    -0.0500     5.9500
+  ah_regf_reg[3][27]/CK (DFF_X1)                        0.0000     5.9500 r
+  library setup time                                   -0.1670     5.7830
+  data required time                                               5.7830
+  --------------------------------------------------------------------------
+  data required time                                               5.7830
+  data arrival time                                               -5.7699
+  --------------------------------------------------------------------------
+  slack (MET)                                                      0.0131
+
+
+1

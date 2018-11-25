@@ -102,6 +102,7 @@ begin
                         w_regf[13] <= pad_reg[95:64];
                         w_regf[14] <= pad_reg[63:32];
                         w_regf[15] <= pad_reg[31:0];
+			//current_serving <= 6'b0;
                 end
                 else
                 //if(regip_w_reg_read)
