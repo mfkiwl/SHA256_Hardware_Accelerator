@@ -19,4 +19,4 @@
 # latches                                            
 #---------------------------------------------------------
 
-read_sverilog $RTL_DIR/${modname}.v
+read_sverilog $RTL_DIR/top_without_mem.v

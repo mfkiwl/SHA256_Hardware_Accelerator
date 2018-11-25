@@ -1,15 +1,21 @@
 /**
- * \file MyDesign.v
+ * \file top_without_mem.v
  * \date 11/24/2018
  * \author Soumil Krishnanand Heble
  * \brief Compute SHA256 of Message from SRAM
- * gen_padded, gen_w and gen_h RTL were in separate modules. Combined here for submission.
  */
 
-`define MSG_LENGTH 5
+`define MSG_LENGTH 7
+
+`define ADV_ADD			1
+`define ADV_ADD_PADDED	1
+`define ADV_ADD_W		1
+`define ADV_ADD_H		1
 
 // synopsys translate_off
-`include "./DW01_add.v"
+`ifdef	ADV_ADD
+	`include "./DW01_add.v"
+`endif
 // synopsys translate_on
 
 
@@ -21,14 +27,14 @@ module MyDesign	#(parameter OUTPUT_LENGTH       = 8,
 				(
 					//---------------------------------------------------------------------------
 					// Control
-					//---------------------------------------------------------------------------
+					//
 					output reg                                   dut__xxx__finish     ,
 					input  wire                                  xxx__dut__go         ,  
-					input  wire  [ $clog2(MAX_MESSAGE_LENGTH):0] xxx__dut__msg_length ,
+					input  wire  [ $clog2(MAX_MESSAGE_LENGTH)-1:0] xxx__dut__msg_length ,
 
 					//---------------------------------------------------------------------------
 					// Message memory interface
-					//---------------------------------------------------------------------------
+					//
 					output reg  [ $clog2(MAX_MESSAGE_LENGTH)-1:0]   dut__msg__address  ,  // address of letter
 					output reg                                      dut__msg__enable   ,
 					output reg                                      dut__msg__write    ,
@@ -36,7 +42,7 @@ module MyDesign	#(parameter OUTPUT_LENGTH       = 8,
 					
 					//---------------------------------------------------------------------------
 					// K memory interface
-					//---------------------------------------------------------------------------
+					//
 					output reg  [ $clog2(NUMBER_OF_Ks)-1:0]     dut__kmem__address  ,
 					output reg                                  dut__kmem__enable   ,
 					output reg                                  dut__kmem__write    ,
@@ -44,7 +50,7 @@ module MyDesign	#(parameter OUTPUT_LENGTH       = 8,
 
 					//---------------------------------------------------------------------------
 					// H memory interface
-					//---------------------------------------------------------------------------
+					//
 					output reg  [ $clog2(NUMBER_OF_Hs)-1:0]     dut__hmem__address  ,
 					output reg                                  dut__hmem__enable   ,
 					output reg                                  dut__hmem__write    ,
@@ -53,16 +59,16 @@ module MyDesign	#(parameter OUTPUT_LENGTH       = 8,
 
 					//---------------------------------------------------------------------------
 					// Output data memory 
-					//---------------------------------------------------------------------------
+					//
 					output reg  [ $clog2(OUTPUT_LENGTH)-1:0]    dut__dom__address  ,
 					output reg  [31:0]                          dut__dom__data     ,  // write data
 					output reg                                  dut__dom__enable   ,
 					output reg                                  dut__dom__write    ,
 
 
-					//---------------------------------------------------------------------------
+					//-------------------------------
 					// General
-					//---------------------------------------------------------------------------
+					//
 					input  wire                 clk             ,
 					input  wire                 reset
 				);
@@ -79,7 +85,7 @@ parameter width32 = 32;
 /** Registered Inputs Global */
 reg regin_reset;
 reg regin_xxx__dut__go;
-reg [$clog2(MAX_MESSAGE_LENGTH)-1:0] regin_xxx__dut__msg_length;
+reg [ $clog2(MAX_MESSAGE_LENGTH):0] regin_xxx__dut__msg_length;
 reg [7:0] regin_msg__dut__data;
 reg [31:0] regin_kmem__dut__data;
 reg [31:0] regin_hmem__dut__data;
@@ -182,7 +188,9 @@ reg ah_access_sig;
 /****************************** Wires ******************************/
 
 /*>>>>> gen_padded module ******/
-wire [5:0] next_addr_out_wire;
+`ifdef	ADV_ADD_PADDED
+	wire [5:0] next_addr_out_wire;
+`endif
 
 /*>>>>> gen_w module ******/
 wire [31:0] add0_out_wire;
@@ -264,7 +272,7 @@ begin
 	/*>>>>> Global Inputs ******/
 	regin_reset <= reset;
 	regin_xxx__dut__go <= xxx__dut__go;
-	regin_xxx__dut__msg_length <= xxx__dut__msg_length[$clog2(MAX_MESSAGE_LENGTH)-1:0];
+	regin_xxx__dut__msg_length <= xxx__dut__msg_length;
 	regin_msg__dut__data <= msg__dut__data;
 	regin_kmem__dut__data <= kmem__dut__data;
 	regin_hmem__dut__data <= hmem__dut__data;
@@ -377,7 +385,7 @@ begin
 				w_regf[13] <= regop_pad_reg[95:64];
 				w_regf[14] <= regop_pad_reg[63:32];
 				w_regf[15] <= regop_pad_reg[31:0];
-				current_serving <= 6'b0;
+				current_serving <= 6'b0;	//CHANGED
 		end
 		else
 		if((current_serving==regip_w_reg_addr) & regip_w_reg_read)
@@ -462,7 +470,7 @@ begin
 					curr_addr_hop <= hop_addr_sum_wire;
 					dut__hmem__enable <= 1'b1;
 					ah_regf_wen_hold0 <= 1'b1;
-					curr_addr_kw <= 6'b0;
+					curr_addr_kw <= 6'b0;	//CHANGED
 			end
 			
 			M3:	begin
@@ -542,63 +550,71 @@ begin
 	
 	case(current_state_padded)
 		P0: begin
-				if(regin_xxx__dut__go==1'b1)
-				begin
-					next_state_padded = P1;
-				end
-				else
-				begin
-					next_state_padded = P0;
-				end
+			if(regin_xxx__dut__go==1'b1)
+			begin
+				next_state_padded = P1;
+			end
+			else
+			begin
+				next_state_padded = P0;
+			end
 		end
 		
 		P1: begin
-				next_state_padded = P2;
+			next_state_padded = P2;
 		end
 		
 		P2: begin
-				next_addr = next_addr_out_wire;
-				
-				next_data = regin_msg__dut__data;
-				we_pad_reg_sig = 1'b1;
-				msg_mem_en = 1'b1;
-				if(curr_addr==comp_addr)
-				begin
-					next_state_padded = P3;
-				end
-				else
-				begin
-					next_state_padded = P2;
-				end
+		
+		`ifdef ADV_ADD_PADDED
+			next_addr = next_addr_out_wire;
+		`else
+			next_addr = curr_addr + 1;
+		`endif
+			
+			next_data = regin_msg__dut__data;
+			we_pad_reg_sig = 1'b1;
+			msg_mem_en = 1'b1;
+			if(curr_addr==comp_addr)
+			begin
+				next_state_padded = P3;
+			end
+			else
+			begin
+				next_state_padded = P2;
+			end
 		end
 		
 		P3: begin
-				next_addr = next_addr_out_wire;
-			
-				next_data = regin_msg__dut__data;
-				next_state_padded = P4;
+		
+		`ifdef ADV_ADD_PADDED
+			next_addr = next_addr_out_wire;
+		`else
+			next_addr = curr_addr + 1;
+		`endif
+		
+			next_data = regin_msg__dut__data;
+			next_state_padded = P4;
 		end
 		
 		P4: begin
-				next_data = 8'b10000000;
-				next_state_padded = P5;
+			next_data = 8'b10000000;
+			next_state_padded = P5;
 		end
 		
 		P5: begin
-				pad_rdy_sig = 1'b1;
-				if(regin_xxx__dut__go & regin_finish_sig)
-				begin
-					next_state_padded = P1;
-				end
-				else
-				begin
-					next_state_padded = P5;
-				end
+			pad_rdy_sig = 1'b1;
+			if(regin_xxx__dut__go & regin_finish_sig)
+			begin
+				next_state_padded = P1;
+			end
+			else
+			begin
+				next_state_padded = P5;
+			end
 		end
 		
-		default:	begin
-						next_state_padded = P1;
-		end
+		default: next_state_padded = P1;
 	endcase
 	
 	/*>>>>> gen_w module ******/
@@ -663,7 +679,7 @@ begin
 				end
 		end
 		
-		M1:	begin
+		M1:	begin	//Copy a-h from H SRAM (2 Reg Address - Load First, 2 Reg WEN - Load First)
 				if(hop_addr_cout_wire)
 				begin
 					main_next_state = M2;
@@ -685,7 +701,7 @@ begin
 				end
 		end
 		
-		M3: begin
+		M3: begin	// +1 to KW Address and En -> 1
 				main_next_state = M4;
 		end
 		
@@ -701,7 +717,7 @@ begin
 			main_next_state = M7;
 		end
 		
-		M7:	begin
+		M7:	begin	// +1 KW Address and En -> 1
 			main_next_state = M8;
 		end
 		
@@ -725,7 +741,7 @@ begin
 					end
 		end
 		
-		M11:	begin
+		M11:	begin	/** Addition H and AH */
 					ah_access_sig = 1'b1;
 					if(hop_addr_cout_wire)
 					begin
@@ -1025,28 +1041,30 @@ end
 
 
 
-/****************************** Designware Adders Module Instantiation ******************************/
+/****************************** Designware Adders ******************************/
 
 /*>>>>> gen_padded module ******/
-DW01_add #(width6) PPADD1 		(.A(curr_addr), .B(6'b1), .CI(1'b0), .SUM(next_addr_out_wire));
+`ifdef ADV_ADD_PADDED
+	DW01_add #(width6) PPADD1 		(.A(curr_addr), .B(6'b1), .CI(1'b0), .SUM(next_addr_out_wire));
+`endif
 
 /*>>>>> gen_w module ******/
-DW01_add #(width32)	PPADD2 		(.A(w_min_15), .B(w_min_16), .CI(1'b0), .SUM(add0_out_wire));
-DW01_add #(width32)	PPADD3 		(.A(w_min_2), .B(w_min_7), .CI(1'b0), .SUM(add1_out_wire));
-DW01_add #(width32)	PPADD4 		(.A(add0_op_hold), .B(add1_op_hold), .CI(1'b0), .SUM(final_add_op_wire));
-DW01_add #(width6)	PPADD5 		(.A(current_serving), .B(6'b1), .CI(1'b0), .SUM(addr_inc_wire), .CO(addr_inc_cout_wire));
+	DW01_add #(width32)	PPADD2 		(.A(w_min_15), .B(w_min_16), .CI(1'b0), .SUM(add0_out_wire));
+	DW01_add #(width32)	PPADD3 		(.A(w_min_2), .B(w_min_7), .CI(1'b0), .SUM(add1_out_wire));
+	DW01_add #(width32)	PPADD4 		(.A(add0_op_hold), .B(add1_op_hold), .CI(1'b0), .SUM(final_add_op_wire));
+	DW01_add #(width6)	PPADD5 		(.A(current_serving), .B(6'b1), .CI(1'b0), .SUM(addr_inc_wire), .CO(addr_inc_cout_wire));
 
 /*>>>>> gen_h module ******/
-DW01_add #(width3)	PPADD6	 	(.A(curr_addr_hop), .B(3'b1), .CI(1'b0), .SUM(hop_addr_sum_wire), .CO(hop_addr_cout_wire));
-DW01_add #(width6)	PPADD7 		(.A(curr_sha_iter), .B(6'b1), .CI(1'b0), .SUM(sha_iter_sum_wire), .CO(sha_iter_cout_wire));
-DW01_add #(width32)	PPADD8 		(.A(regin_hmem__dut__data), .B(ah_regf[ah_regf_addr]), .CI(1'b0), .SUM(ah_addr_sum_wire));
-DW01_add #(width6)	PPADD9 		(.A(curr_addr_kw), .B(6'b1), .CI(1'b0), .SUM(kw_addr_sum_wire));
-DW01_add #(width32)	PPADD10 	(.A(regin_w_data_in), .B(regin_kmem__dut__data), .CI(1'b0), .SUM(wk_add_sum_wire));
-DW01_add #(width32)	PPADD11 	(.A(wk_add_1), .B(ah_regf[7]), .CI(1'b0), .SUM(wkh_add_2_sum_wire));
-DW01_add #(width32)	PPADD12 	(.A(ch_efg_1), .B(sig1_e_1), .CI(1'b0), .SUM(sig1ch_add_2_sum_wire));
-DW01_add #(width32)	PPADD13 	(.A(maj_abc_1), .B(sig0_a_1), .CI(1'b0), .SUM(T2_2_sum_wire));
-DW01_add #(width32)	PPADD14 	(.A(sig1ch_add_2), .B(wkh_add_2), .CI(1'b0), .SUM(T1_3_sum_wire));
-DW01_add #(width32)	PPADD15 	(.A(T1_3), .B(T2_2), .CI(1'b0), .SUM(ah_regf0_sum_wire));
-DW01_add #(width32)	PPADD16 	(.A(T1_3), .B(ah_regf[3]), .CI(1'b0), .SUM(ah_regf4_sum_wire));
+	DW01_add #(width3)	PPADD6	 	(.A(curr_addr_hop), .B(3'b1), .CI(1'b0), .SUM(hop_addr_sum_wire), .CO(hop_addr_cout_wire));
+	DW01_add #(width6)	PPADD7 		(.A(curr_sha_iter), .B(6'b1), .CI(1'b0), .SUM(sha_iter_sum_wire), .CO(sha_iter_cout_wire));
+	DW01_add #(width32)	PPADD8 		(.A(regin_hmem__dut__data), .B(ah_regf[ah_regf_addr]), .CI(1'b0), .SUM(ah_addr_sum_wire));
+	DW01_add #(width6)	PPADD9 		(.A(curr_addr_kw), .B(6'b1), .CI(1'b0), .SUM(kw_addr_sum_wire));
+	DW01_add #(width32)	PPADD10 	(.A(regin_w_data_in), .B(regin_kmem__dut__data), .CI(1'b0), .SUM(wk_add_sum_wire));
+	DW01_add #(width32)	PPADD11 	(.A(wk_add_1), .B(ah_regf[7]), .CI(1'b0), .SUM(wkh_add_2_sum_wire));
+	DW01_add #(width32)	PPADD12 	(.A(ch_efg_1), .B(sig1_e_1), .CI(1'b0), .SUM(sig1ch_add_2_sum_wire));
+	DW01_add #(width32)	PPADD13 	(.A(maj_abc_1), .B(sig0_a_1), .CI(1'b0), .SUM(T2_2_sum_wire));
+	DW01_add #(width32)	PPADD14 	(.A(sig1ch_add_2), .B(wkh_add_2), .CI(1'b0), .SUM(T1_3_sum_wire));
+	DW01_add #(width32)	PPADD15 	(.A(T1_3), .B(T2_2), .CI(1'b0), .SUM(ah_regf0_sum_wire));
+	DW01_add #(width32)	PPADD16 	(.A(T1_3), .B(ah_regf[3]), .CI(1'b0), .SUM(ah_regf4_sum_wire));
 
 endmodule
