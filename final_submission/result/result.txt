@@ -1,0 +1,4 @@
+Area = 
+Number of Cycles = 
+Clock Period = 
+Performance = 
