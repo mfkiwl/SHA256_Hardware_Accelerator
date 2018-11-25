@@ -30,7 +30,7 @@ module MyDesign	#(parameter OUTPUT_LENGTH       = 8,
 					//
 					output reg                                   dut__xxx__finish     ,
 					input  wire                                  xxx__dut__go         ,  
-					input  wire  [ $clog2(MAX_MESSAGE_LENGTH):0] xxx__dut__msg_length ,
+					input  wire  [ $clog2(MAX_MESSAGE_LENGTH)-1:0] xxx__dut__msg_length ,
 
 					//---------------------------------------------------------------------------
 					// Message memory interface
@@ -209,7 +209,6 @@ wire sha_iter_cout_wire;
 wire [31:0] ah_addr_sum_wire;
 
 wire [5:0] kw_addr_sum_wire;
-wire kw_addr_cout_wire;
 
 wire [31:0] wk_add_sum_wire;
 wire [31:0] wkh_add_2_sum_wire;
@@ -1059,7 +1058,7 @@ end
 	DW01_add #(width3)	PPADD6	 	(.A(curr_addr_hop), .B(3'b1), .CI(1'b0), .SUM(hop_addr_sum_wire), .CO(hop_addr_cout_wire));
 	DW01_add #(width6)	PPADD7 		(.A(curr_sha_iter), .B(6'b1), .CI(1'b0), .SUM(sha_iter_sum_wire), .CO(sha_iter_cout_wire));
 	DW01_add #(width32)	PPADD8 		(.A(regin_hmem__dut__data), .B(ah_regf[ah_regf_addr]), .CI(1'b0), .SUM(ah_addr_sum_wire));
-	DW01_add #(width6)	PPADD9 		(.A(curr_addr_kw), .B(6'b1), .CI(1'b0), .SUM(kw_addr_sum_wire), .CO(kw_addr_cout_wire));
+	DW01_add #(width6)	PPADD9 		(.A(curr_addr_kw), .B(6'b1), .CI(1'b0), .SUM(kw_addr_sum_wire));
 	DW01_add #(width32)	PPADD10 	(.A(regin_w_data_in), .B(regin_kmem__dut__data), .CI(1'b0), .SUM(wk_add_sum_wire));
 	DW01_add #(width32)	PPADD11 	(.A(wk_add_1), .B(ah_regf[7]), .CI(1'b0), .SUM(wkh_add_2_sum_wire));
 	DW01_add #(width32)	PPADD12 	(.A(ch_efg_1), .B(sig1_e_1), .CI(1'b0), .SUM(sig1ch_add_2_sum_wire));
