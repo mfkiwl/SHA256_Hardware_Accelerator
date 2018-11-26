@@ -1,12 +1,22 @@
 /**
  * \file ece564_project_tb_top.v
  * \date 11/24/2018
- * \author 
+ * \author Anonymous NCSU Author, Soumil Krishnanand Heble
  * \brief SHA256 Test Bench
  */
 
 /** Set based on your message memory depth */
-`define MSG_LENGTH 27
+`define MSG_LENGTH 5
+
+/*******************************************************************************
+ * Test Case Selector - Uncomment one of the macro's below to select test cases
+ * DEFAULT_TEST 	- Sample Test Case Provided on Moodle
+ * GO_FINISH_TEST 	- Go -> Go -> Finish Test Case
+ * GO_GO_TEST 		- Go -> Go -> Go -> ... Test Case
+ *******************************************************************************/
+`define DEFAULT_TEST		0
+//`define GO_FINISH_TEST	0
+//`define GO_GO_TEST		0
 
 // synopsys translate_off
 `include "/afs/eos.ncsu.edu/dist/synopsys2013/syn/dw/sim_ver/DW01_add.v"
@@ -79,7 +89,7 @@ module tb_top ();
   
   sram  #(.ADDR_WIDTH    ($clog2(MAX_MESSAGE_LENGTH)),
           .DATA_WIDTH    (SYMBOL_WIDTH              ),
-          .MEM_INIT_FILE ("message_27.dat"             ))
+          .MEM_INIT_FILE ("message.dat"             ))
          msg_mem  (
           .address      ( dut__msg__address  ),
           .write_data   ( {SYMBOL_WIDTH {1'b0}}), 
@@ -143,7 +153,8 @@ module tb_top ();
         clk                     = 1'b0;
         forever # CLK_PHASE clk = ~clk;
     end
-  
+
+`ifdef DEFAULT_TEST
   initial 
     begin
         dutRunning = 0;
@@ -170,6 +181,7 @@ module tb_top ();
 
         $finish;
     end
+`endif
 
   always 
     begin
@@ -222,6 +234,88 @@ module tb_top ();
       wait (dut__xxx__finish == 1'b0);
 
     end
+	
+//---------------------------------------------------------------------------
+// Custom Test Bench
+//---------------------------------------------------------------------------
+
+//---------------------------------------------------------------------------
+// Go Go Finish x 3
+//---------------------------------------------------------------------------
+`ifdef GO_FINISH_TEST
+initial 
+    begin
+        dutRunning = 0;
+        waitForFinishLow = 1;
+        repeat(10) @(posedge clk);
+        reset = 0;
+        xxx__dut__go = 0;
+        xxx__dut__msg_length = `MSG_LENGTH;
+        repeat(10) @(posedge clk);
+        reset = 1;
+        repeat(10) @(posedge clk);
+        reset = 0;
+        repeat(1) @(posedge clk);
+        xxx__dut__go = 1;
+        repeat(1) @(posedge clk);
+        xxx__dut__go = 0;
+        repeat(10) @(posedge clk);
+		xxx__dut__go = 1;
+		repeat(10) @(posedge clk);
+		xxx__dut__go = 0;
+		repeat(480) @(posedge clk);
+		
+        repeat(1) @(posedge clk);
+        xxx__dut__go = 1;
+        repeat(1) @(posedge clk);
+        xxx__dut__go = 0;
+        repeat(10) @(posedge clk);
+		xxx__dut__go = 1;
+		repeat(10) @(posedge clk);
+		xxx__dut__go = 0;
+		repeat(480) @(posedge clk);
+		
+		repeat(1) @(posedge clk);
+        xxx__dut__go = 1;
+        repeat(1) @(posedge clk);
+        xxx__dut__go = 0;
+        repeat(10) @(posedge clk);
+		xxx__dut__go = 1;
+		repeat(10) @(posedge clk);
+		xxx__dut__go = 0;
+		repeat(480) @(posedge clk);
+
+        $finish;
+    end
+`endif
+
+//---------------------------------------------------------------------------
+// Go Go Go Go Go
+//---------------------------------------------------------------------------
+`ifdef GO_GO_TEST
+initial 
+    begin
+        dutRunning = 0;
+        waitForFinishLow = 1;
+        repeat(10) @(posedge clk);
+        reset = 0;
+        xxx__dut__go = 0;
+        xxx__dut__msg_length = `MSG_LENGTH;
+        repeat(10) @(posedge clk);
+        reset = 1;
+        repeat(10) @(posedge clk);
+        reset = 0;
+        repeat(1) @(posedge clk);
+        xxx__dut__go = 1;
+        repeat(501) @(posedge clk);
+
+        repeat(1) @(posedge clk);
+        repeat(1) @(posedge clk);
+        repeat(500) @(posedge clk);
+
+        $finish;
+    end
+`endif
 
 //---------------------------------------------------------------------------
 // Stimulus
