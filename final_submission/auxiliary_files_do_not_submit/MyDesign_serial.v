@@ -14,7 +14,7 @@
 `endif
 // synopsys translate_on
 
-module MyDesign	#(parameter OUTPUT_LENGTH       = 8,
+module MyDesign_serial	#(parameter OUTPUT_LENGTH       = 8,
                   parameter MAX_MESSAGE_LENGTH  = 55,
                   parameter NUMBER_OF_Ks        = 64,
                   parameter NUMBER_OF_Hs        = 8 ,
@@ -741,6 +741,10 @@ begin
 					begin
 						main_next_state = M12;
 					end
+		end
+
+		default:    begin
+				main_next_state = M0;
 		end
 	endcase
 end
