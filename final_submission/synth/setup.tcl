@@ -8,7 +8,7 @@ set modname MyDesign
 set RTL_DIR    ../v
 
 # set variable "type" to a name that distinguishes this synthesis run
-set type test
+set type MyDesign
 
 #set the number of digits to be used for delay results
 set report_default_significant_digits 4

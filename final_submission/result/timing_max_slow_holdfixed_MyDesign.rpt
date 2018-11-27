@@ -1,0 +1,77 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : MyDesign
+Version: K-2015.06-SP1
+Date   : Mon Nov 26 19:50:37 2018
+****************************************
+
+ # A fanout number of 1000 was used for high fanout net computations.
+
+Operating Conditions: slow   Library: NangateOpenCellLibrary_PDKv1_2_v2008_10_slow_nldm
+Wire Load Model Mode: top
+
+  Startpoint: ah_regf_addr_reg[1]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: ah_regf_reg[0][31]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                 0.0000     0.0000
+  clock network delay (ideal)                           0.0000     0.0000
+  ah_regf_addr_reg[1]/CK (DFF_X2)                       0.0000 #   0.0000 r
+  ah_regf_addr_reg[1]/Q (DFF_X2)                        0.6268     0.6268 f
+  U8398/ZN (AND2_X1)                                    0.2400     0.8667 f
+  U7814/ZN (AND2_X4)                                    0.3472     1.2139 f
+  U8686/ZN (AOI221_X2)                                  0.5794     1.7933 r
+  U8685/ZN (NAND2_X2)                                   0.1220     1.9154 f
+  PPADD8/B[14] (MyDesign_DW01_add_21)                   0.0000     1.9154 f
+  PPADD8/U261/ZN (NOR2_X1)                              0.2831     2.1985 r
+  PPADD8/U242/ZN (NOR2_X1)                              0.1357     2.3341 f
+  PPADD8/U317/ZN (AOI21_X2)                             0.1679     2.5021 r
+  PPADD8/U294/ZN (OAI21_X2)                             0.1532     2.6553 f
+  PPADD8/U248/ZN (AOI21_X4)                             0.3206     2.9758 r
+  PPADD8/U309/ZN (OAI21_X2)                             0.1395     3.1154 f
+  PPADD8/U240/ZN (AOI21_X4)                             0.1828     3.2982 r
+  PPADD8/U311/ZN (OAI21_X2)                             0.1270     3.4251 f
+  PPADD8/U247/ZN (AOI21_X2)                             0.2372     3.6623 r
+  PPADD8/U243/ZN (OAI21_X2)                             0.1513     3.8136 f
+  PPADD8/U244/ZN (AOI21_X2)                             0.1848     3.9984 r
+  PPADD8/U312/ZN (OAI21_X2)                             0.1389     4.1373 f
+  PPADD8/U250/ZN (AOI21_X4)                             0.1614     4.2987 r
+  PPADD8/U364/ZN (INV_X4)                               0.0533     4.3520 f
+  PPADD8/U5/CO (FA_X1)                                  0.4803     4.8324 f
+  PPADD8/U4/CO (FA_X1)                                  0.5172     5.3496 f
+  PPADD8/U3/CO (FA_X1)                                  0.4882     5.8378 f
+  PPADD8/U241/Z (XOR2_X1)                               0.3667     6.2045 r
+  PPADD8/SUM[31] (MyDesign_DW01_add_21)                 0.0000     6.2045 r
+  U10012/ZN (INV_X4)                                    0.0406     6.2451 f
+  U10014/Z (MUX2_X2)                                    0.4897     6.7349 f
+  U10015/ZN (INV_X4)                                    0.1442     6.8791 r
+  U9258/Z (MUX2_X2)                                     0.2063     7.0854 r
+  U9257/ZN (INV_X4)                                     0.0306     7.1160 f
+  U9657/Z (MUX2_X2)                                     0.5897     7.7057 f
+  U9658/ZN (INV_X4)                                     0.0764     7.7821 r
+  ah_regf_reg[0][31]/D (DFF_X2)                         0.0000     7.7821 r
+  data arrival time                                                7.7821
+
+  clock clk (rise edge)                                 8.0000     8.0000
+  clock network delay (ideal)                           0.0000     8.0000
+  clock uncertainty                                    -0.0500     7.9500
+  ah_regf_reg[0][31]/CK (DFF_X2)                        0.0000     7.9500 r
+  library setup time                                   -0.1670     7.7830
+  data required time                                               7.7830
+  --------------------------------------------------------------------------
+  data required time                                               7.7830
+  data arrival time                                               -7.7821
+  --------------------------------------------------------------------------
+  slack (MET)                                                      0.0009
+
+
+1
