@@ -1,20 +1,20 @@
-Area =  um^2
+Area = 15852.5362 um^2
 
 Number of Cycles:
 * Message_1 = 100 
 * Message_5 = 104
 * Message_27 = 126
 * Message_55 = 154
-*** Average = 
+*** Average = 121
 
-Clock Period =  ns
+Clock Period = 8 ns
 
 Performance:
-* Message_1 = 
-* Message_5 = 
-* Message_27 = 
-* Message_55 = 
-*** Average = 
+* Message_1 = 12682028.96 ns um^2
+* Message_5 = 13189310.12 ns um^2
+* Message_27 = 15979356.49 ns um^2
+* Message_55 = 19530324.59 ns um^2
+*** Average = 15345255.04 ns um^2
 
 Message Content:
 * Message_1 = a, Length = 1
