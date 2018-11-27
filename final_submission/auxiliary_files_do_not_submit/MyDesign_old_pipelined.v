@@ -1,5 +1,5 @@
 /**
- * \file top_without_mem.v
+ * \file MyDesign.v
  * \date 11/24/2018
  * \author Soumil Krishnanand Heble
  * \brief Compute SHA256 of Message from SRAM
@@ -14,7 +14,7 @@
 `endif
 // synopsys translate_on
 
-module MyDesign_serial	#(parameter OUTPUT_LENGTH       = 8,
+module MyDesign	#(parameter OUTPUT_LENGTH       = 8,
                   parameter MAX_MESSAGE_LENGTH  = 55,
                   parameter NUMBER_OF_Ks        = 64,
                   parameter NUMBER_OF_Hs        = 8 ,
@@ -116,6 +116,17 @@ reg [3:0] main_current_state;	/** Main State Machine State Variable */
 reg [5:0] regop_w_mem_addr;		/** W Module Address */
 reg regop_w_mem_en;				/** W Module Enable */
 
+/** Pipelined Iteration Registers */
+reg [31:0] wk_add_1;		/** W and K Data Addition Pipeline Register */
+reg [31:0] sig1_e_1;		/** S2 Computation Pipeline Register */
+reg [31:0] ch_efg_1;		/** S1 Computation Pipeline Register */
+reg [31:0] sig0_a_1;		/** S5 Computation Pipeline Register */
+reg [31:0] maj_abc_1;		/** S4 Computation Pipeline Register */
+reg [31:0] wkh_add_2;		/** Add WK Sum to h Pipeline Register */
+reg [31:0] sig1ch_add_2;	/** Add S1 and S2 Result Pipeline Register */
+reg [31:0] T2_2;			/** S6 Computation Pipeline Register */
+reg [31:0] T1_3;			/** S3 Computation Pipeline Register */
+
 /** Delay (Holding) Registers */
 reg [5:0] k_addr_hold0;			/** K SRAM Address Hold 0 Register */
 reg [5:0] k_addr_hold1;			/** K SRAM Address Hold 1 Register */
@@ -210,8 +221,8 @@ parameter [2:0]
 	P3 = 3'b011,	/** Deassert SRAM Enable Signal and Deassert Pad Register Write Enable */
 	P4 = 3'b100,	/** Next Data is 0x80 */
 	P5 = 3'b101,	/** Wait for Next Go */
-	P6 = 3'b110,	/** Empty State */
-	P7 = 3'b111;	/** Empty State */
+	P6 = 3'b110,	/** Unused State */
+	P7 = 3'b111;	/** Unused State */
 
 /*>>>>> gen_w module ******/
 parameter [1:0]
@@ -457,47 +468,47 @@ begin
 					k_en_hold0 <= 1'b1;
 			end
 			
-			M4:	begin
-					curr_addr_kw <= kw_addr_sum_wire;
-					regop_w_mem_en <= 1'b1;
-					k_en_hold0 <= 1'b1;
-			end
-			
-			M5:	begin
-					curr_addr_kw <= kw_addr_sum_wire;
-					regop_w_mem_en <= 1'b1;
-					k_en_hold0 <= 1'b1;
-			end
-			
-			M6:	begin
-					curr_addr_kw <= kw_addr_sum_wire;
-					regop_w_mem_en <= 1'b1;
-					k_en_hold0 <= 1'b1;
-			end
-			
 			M7:	begin
-					curr_sha_iter <= sha_iter_sum_wire;
 					curr_addr_kw <= kw_addr_sum_wire;
 					regop_w_mem_en <= 1'b1;
 					k_en_hold0 <= 1'b1;
 					
-					ah_regf[0] <= ah_regf0_sum_wire;
-					ah_regf[1] <= ah_regf[0];
-					ah_regf[2] <= ah_regf[1];
-					ah_regf[3] <= ah_regf[2];
-					ah_regf[4] <= ah_regf4_sum_wire;
-					ah_regf[5] <= ah_regf[4];
-					ah_regf[6] <= ah_regf[5];
-					ah_regf[7] <= ah_regf[6];
+					wk_add_1 <= wk_add_sum_wire;
+					sig1_e_1 <= ({ah_regf[4][5:0],ah_regf[4][31:6]}^{ah_regf[4][10:0],ah_regf[4][31:11]}^{ah_regf[4][24:0],ah_regf[4][31:25]});
+					ch_efg_1 <= (ah_regf[4]&ah_regf[5])^((~ah_regf[4])&ah_regf[6]);
+					sig0_a_1 <= ({ah_regf[0][1:0],ah_regf[0][31:2]}^{ah_regf[0][12:0],ah_regf[0][31:13]}^{ah_regf[0][21:0],ah_regf[0][31:22]});
+					maj_abc_1 <= ((ah_regf[0]&ah_regf[1])^(ah_regf[0]&ah_regf[2])^(ah_regf[1]&ah_regf[2]));
 			end
 			
 			M8:	begin
+					wkh_add_2 <= wkh_add_2_sum_wire;
+					sig1ch_add_2 <= sig1ch_add_2_sum_wire;
+					T2_2 <= T2_2_sum_wire;
+			end
+			
+			M9:	begin
+					T1_3 <= T1_3_sum_wire;
+			end
+			
+			M10:	begin
+						curr_sha_iter <= sha_iter_sum_wire;
+						ah_regf[0] <= ah_regf0_sum_wire;
+						ah_regf[1] <= ah_regf[0];
+						ah_regf[2] <= ah_regf[1];
+						ah_regf[3] <= ah_regf[2];
+						ah_regf[4] <= ah_regf4_sum_wire;
+						ah_regf[5] <= ah_regf[4];
+						ah_regf[6] <= ah_regf[5];
+						ah_regf[7] <= ah_regf[6];
+			end
+			
+			M11:	begin
 						curr_addr_hop <= hop_addr_sum_wire;
 						dut__hmem__enable <= 1'b1;
 						ah_regf_wen_hold0 <= 1'b1;
 			end
 			
-			M11:	begin
+			M14:	begin
 						curr_addr_hop <= hop_addr_sum_wire;
 						dut__dom__enable <= 1'b1;
 						dut__dom__data <= ah_regf[curr_addr_hop];
@@ -686,41 +697,32 @@ begin
 			main_next_state = M7;
 		end
 		
-		M7:	begin
-			ah_access_sig = 1'b1;
-			if(sha_iter_cout_wire)
-			begin
-				main_next_state = M8;
-			end
-			else
-			begin
-				main_next_state = M7;
-			end
+		M7:	begin	// +1 KW Address and En -> 1
+			main_next_state = M8;
 		end
 		
-		M8:	begin	/** Addition H and AH */
-					ah_access_sig = 1'b1;
-					if(hop_addr_cout_wire)
-					begin
-						main_next_state = M9;
-					end
-					else
-					begin
-						main_next_state = M8;
-					end
+		M8:	begin
+				main_next_state = M9;
 		end
 		
 		M9:	begin
-					ah_access_sig = 1'b1;
-					main_next_state = M10;
+				main_next_state = M10;
 		end
 		
 		M10:	begin
 					ah_access_sig = 1'b1;
-					main_next_state = M11;
+					if(sha_iter_cout_wire)
+					begin
+						main_next_state = M11;
+					end
+					else
+					begin
+						main_next_state = M7;
+					end
 		end
 		
-		M11:	begin
+		M11:	begin	/** Addition H and AH */
+					ah_access_sig = 1'b1;
 					if(hop_addr_cout_wire)
 					begin
 						main_next_state = M12;
@@ -732,6 +734,27 @@ begin
 		end
 		
 		M12:	begin
+					ah_access_sig = 1'b1;
+					main_next_state = M13;
+		end
+		
+		M13:	begin
+					ah_access_sig = 1'b1;
+					main_next_state = M14;
+		end
+		
+		M14:	begin
+					if(hop_addr_cout_wire)
+					begin
+						main_next_state = M15;
+					end
+					else
+					begin
+						main_next_state = M14;
+					end
+		end
+		
+		M15:	begin
 					finish_signal = 1'b1;
 					if(regin_xxx__dut__go)
 					begin
@@ -739,12 +762,8 @@ begin
 					end
 					else
 					begin
-						main_next_state = M12;
+						main_next_state = M15;
 					end
-		end
-
-		default:    begin
-				main_next_state = M0;
 		end
 	endcase
 end
@@ -1019,11 +1038,11 @@ DW01_add #(width6)	PPADD7 		(.A(curr_sha_iter), .B(6'b1), .CI(1'b0), .SUM(sha_it
 DW01_add #(width32)	PPADD8 		(.A(regin_hmem__dut__data), .B(ah_regf[ah_regf_addr]), .CI(1'b0), .SUM(ah_addr_sum_wire));
 DW01_add #(width6)	PPADD9 		(.A(curr_addr_kw), .B(6'b1), .CI(1'b0), .SUM(kw_addr_sum_wire));
 DW01_add #(width32)	PPADD10 	(.A(regin_w_data_in), .B(regin_kmem__dut__data), .CI(1'b0), .SUM(wk_add_sum_wire));
-DW01_add #(width32)	PPADD11 	(.A(wk_add_sum_wire), .B(ah_regf[7]), .CI(1'b0), .SUM(wkh_add_2_sum_wire));
-DW01_add #(width32)	PPADD12 	(.A((ah_regf[4]&ah_regf[5])^((~ah_regf[4])&ah_regf[6])), .B({ah_regf[4][5:0],ah_regf[4][31:6]}^{ah_regf[4][10:0],ah_regf[4][31:11]}^{ah_regf[4][24:0],ah_regf[4][31:25]}), .CI(1'b0), .SUM(sig1ch_add_2_sum_wire));
-DW01_add #(width32)	PPADD13 	(.A((ah_regf[0]&ah_regf[1])^(ah_regf[0]&ah_regf[2])^(ah_regf[1]&ah_regf[2])), .B({ah_regf[0][1:0],ah_regf[0][31:2]}^{ah_regf[0][12:0],ah_regf[0][31:13]}^{ah_regf[0][21:0],ah_regf[0][31:22]}), .CI(1'b0), .SUM(T2_2_sum_wire));
-DW01_add #(width32)	PPADD14 	(.A(sig1ch_add_2_sum_wire), .B(wkh_add_2_sum_wire), .CI(1'b0), .SUM(T1_3_sum_wire));
-DW01_add #(width32)	PPADD15 	(.A(T1_3_sum_wire), .B(T2_2_sum_wire), .CI(1'b0), .SUM(ah_regf0_sum_wire));
-DW01_add #(width32)	PPADD16 	(.A(T1_3_sum_wire), .B(ah_regf[3]), .CI(1'b0), .SUM(ah_regf4_sum_wire));
+DW01_add #(width32)	PPADD11 	(.A(wk_add_1), .B(ah_regf[7]), .CI(1'b0), .SUM(wkh_add_2_sum_wire));
+DW01_add #(width32)	PPADD12 	(.A(ch_efg_1), .B(sig1_e_1), .CI(1'b0), .SUM(sig1ch_add_2_sum_wire));
+DW01_add #(width32)	PPADD13 	(.A(maj_abc_1), .B(sig0_a_1), .CI(1'b0), .SUM(T2_2_sum_wire));
+DW01_add #(width32)	PPADD14 	(.A(sig1ch_add_2), .B(wkh_add_2), .CI(1'b0), .SUM(T1_3_sum_wire));
+DW01_add #(width32)	PPADD15 	(.A(T1_3), .B(T2_2), .CI(1'b0), .SUM(ah_regf0_sum_wire));
+DW01_add #(width32)	PPADD16 	(.A(T1_3), .B(ah_regf[3]), .CI(1'b0), .SUM(ah_regf4_sum_wire));
 
 endmodule

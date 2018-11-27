@@ -1,22 +1,22 @@
-Area = 17631.8102 um^2
+Area =  um^2
 
-Number of Cycles = 
-* Message_1 = 292 
-* Message_5 = 296
-* Message_27 = 318
-* Message_55 = 346
-*** Average = 307.5
+Number of Cycles:
+* Message_1 = 100 
+* Message_5 = 104
+* Message_27 = 126
+* Message_55 = 154
+*** Average = 
 
-Clock Period = 6 ns
+Clock Period =  ns
 
-Performance = 
-* Message_1 = 30890931.4704
-* Message_5 = 31314094.9152
-* Message_27 = 33641493.8616
-* Message_55 = 36603637.9752
-*** Average = 33112539.5556
+Performance:
+* Message_1 = 
+* Message_5 = 
+* Message_27 = 
+* Message_55 = 
+*** Average = 
 
-Message Content = 
+Message Content:
 * Message_1 = a, Length = 1
 * Message_5 = Hello, Length = 5
 * Message_27 = abcdefghijklmnopqrstuvwxyza, Length = 27
